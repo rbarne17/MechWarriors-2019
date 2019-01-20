@@ -23,7 +23,7 @@ import frc.robot.subsystems.Eyes;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Eyes m_eyes = new Eyes();
+  public static Eyes m_eyes;
   public static OI m_oi;
 
   Command m_autonomousCommand;
