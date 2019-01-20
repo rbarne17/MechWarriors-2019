@@ -7,14 +7,24 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * Add your docs here.
  */
 public class Eyes extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+  public UsbCamera camera1;
+  public UsbCamera camera2;
+
+  public Eyes() {
+    camera1 = CameraServer.getInstance().startAutomaticCapture();
+    camera1.setResolution(640, 480);
+    camera2 = CameraServer.getInstance().startAutomaticCapture();
+    camera1.setResolution(640, 480);
+
+  }
 
   @Override
   public void initDefaultCommand() {
