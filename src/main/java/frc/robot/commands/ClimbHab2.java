@@ -19,6 +19,7 @@ public class ClimbHab2 extends InstantCommand {
    */
   public ClimbHab2() {
     super();
+    requires(Robot.m_climbhab);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }

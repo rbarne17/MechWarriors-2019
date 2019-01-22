@@ -20,7 +20,7 @@ public class RobotMap {
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
   // public static int rightMotor = 2;
-	public static final int ClimbHab_Solenoid_Retract = 0;
+	public static final int ClimbHab_Solenoid_Retract = 1;
 
   
 
