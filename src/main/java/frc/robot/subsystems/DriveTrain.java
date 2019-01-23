@@ -19,13 +19,22 @@ public class DriveTrain extends Subsystem {
   Spark leftBackSpark = null;
   Spark rightFrontSpark =  null;
   Spark rightBackSpark = null;
+  
+  DifferentialDrive differentialDrive = null;
 
   public DriveTrain(){
   //Talon
   leftFrontSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
   leftBackSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
   rightFrontSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
-  rightBackSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK)
+  rightBackSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
+
+  SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontSpark, leftBackSpark);
+  SpeedControllerGroup speedControllerGroup = new SpeedControllerGroup(rightFrontSpark, rightBackSpark);
+  
+  differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+  
+
   
 
 
