@@ -29,5 +29,4 @@ public static final int DRIVETRAIN_RIGHT_BACK_SPARK = 3;
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
   public static final int OI_DRIVER_CONTROLLER = 0;
-public static int DRIVETRAIN_LEFT_SPARK;
 }
