@@ -7,7 +7,6 @@
 
 package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
@@ -18,24 +17,21 @@ import frc.robot.commands.DriveArcade;
 public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  Spark leftFrontSpark = null;
-  Spark leftBackSpark = null;
-  Spark rightFrontSpark =  null;
-  Spark rightBackSpark = null;
+  Spark leftSpark = null;
+  Spark rightSpark = null;
+  
+  
   
   DifferentialDrive differentialDrive = null;
 
   public DriveTrain(){
   //Spark 
-  leftFrontSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
-  leftBackSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
-  rightFrontSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
-  rightBackSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
-
-    SpeedControllerGroup leftMotors = new SpeedControllerGroup(leftFrontSpark, leftBackSpark);
-    SpeedControllerGroup rightMotors = new SpeedControllerGroup(rightFrontSpark, rightBackSpark);
+  leftSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
+  rightSpark = new Spark(RobotMap.DRIVETRAIN_RIGHT_SPARK);
   
-  differentialDrive = new DifferentialDrive(leftMotors, rightMotors);
+
+  
+  differentialDrive = new DifferentialDrive(leftSpark, rightSpark);
   
 
   

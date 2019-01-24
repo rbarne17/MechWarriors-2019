@@ -18,10 +18,10 @@ public class RobotMap {
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
   // public static int rightMotor = 2;
-public static final int DRIVETRAIN_LEFT_FRONT_SPARK = 0;
-public static final int DRIVETRAIN_LEFT_BACK_SPARK = 1;
-public static final int DRIVETRAIN_RIGHT_FRONT_SPARK = 2;
-public static final int DRIVETRAIN_RIGHT_BACK_SPARK = 3;
+public static final int DRIVETRAIN_LEFT_SPARK = 0;
+public static final int DRIVETRAIN_RIGHT_SPARK = 1;
+
+
 
 
   // If you are using multiple modules, make sure to define both the port
@@ -29,4 +29,6 @@ public static final int DRIVETRAIN_RIGHT_BACK_SPARK = 3;
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
   public static final int OI_DRIVER_CONTROLLER = 0;
+public static final int DRIVER_CONTROLLER_MOVE_AXIS = 0;
+public static final int DRIVER_CONTROLLER_ROTATE_AXIS = 1;
 }
