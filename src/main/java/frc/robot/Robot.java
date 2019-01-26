@@ -7,16 +7,12 @@
 
 package frc.robot;
 
-import org.ietf.jgss.Oid;
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.subsystems.ClimbHab;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-//import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Eyes;
 
 /**
