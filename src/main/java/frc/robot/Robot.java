@@ -24,10 +24,9 @@ import frc.robot.subsystems.Eyes;
  */
 public class Robot extends TimedRobot {
   public static final Subsystem m_ClimbHab = null;
-public static Eyes m_eyes;
+  public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
   public static OI m_oi;
-
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
