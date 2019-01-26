@@ -13,21 +13,22 @@ import frc.robot.Robot;
 /**
  * Add your docs here.
  */
-public class ClimbHab2 extends InstantCommand {
+public class ClimbHabDown extends InstantCommand {
   /**
    * Add your docs here.
    */
-  public ClimbHab2() {
+  public ClimbHabDown() {
     super();
-    requires(Robot.m_climbhab);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    //requires(Robot.m_climbhab);
+
   }
 
   // Called once when the command executes
   @Override
   protected void initialize() {
-    Robot.m_climbhab.climbHabUp();
+    Robot.m_climbhab.climbHabDown();
   }
 
 }

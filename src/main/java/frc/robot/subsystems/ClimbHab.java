@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.ClimbHab2;
-
 /**
  * Add your docs here.
  */
@@ -25,19 +23,20 @@ public class ClimbHab extends Subsystem {
     climbHabSolenoid = new DoubleSolenoid(RobotMap.ClimbHab_Solenoid_Deploy, RobotMap.ClimbHab_Solenoid_Retract);
   }
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new ClimbHab2());
-  }
-
+  
   public void climbHabUp() {
     climbHabSolenoid.set(Value.kForward);
   }
 
   public void climbHabDown() {
     climbHabSolenoid.set(Value.kReverse);
+  }
+
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+
   }
 
 }
