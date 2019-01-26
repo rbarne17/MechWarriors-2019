@@ -29,7 +29,7 @@ public class Robot extends TimedRobot {
   public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
   public static OI m_oi;
-  public static Subsystem m_DriveTrain;
+  public static DriveTrain m_DriveTrain;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
