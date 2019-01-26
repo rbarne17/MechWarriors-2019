@@ -7,16 +7,12 @@
 
 package frc.robot;
 
-import org.ietf.jgss.Oid;
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ClimbHab;
-//import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-//import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.Eyes;
 
 /**
@@ -27,11 +23,10 @@ import frc.robot.subsystems.Eyes;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static final Subsystem m_ClimbHab = null;
-public static Eyes m_eyes;
+  public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
+  public static DriveTrain m_drivetrain;
   public static OI m_oi;
-
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -42,12 +37,10 @@ public static Eyes m_eyes;
    */
   @Override
   public void robotInit() {
+    m_drivetrain = new DriveTrain();
     m_eyes = new Eyes();
     m_climbhab = new ClimbHab();
     m_oi = new OI();
-    // m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-    // chooser.addOption("My Auto", new MyAutoCommand());
-    // SmartDashboard.putData("Auto mode", m_chooser);
   }
 
   /**
