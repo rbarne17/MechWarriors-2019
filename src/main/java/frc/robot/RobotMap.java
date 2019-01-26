@@ -15,11 +15,13 @@ package frc.robot;
  */
 public class RobotMap {
 
-  public static final int ClimbHab_Solenoid_Deploy = 0;
   // For example to map the left and right motors, you could define the
   // following variables to use with your drivetrain subsystem.
   // public static int leftMotor = 1;
   // public static int rightMotor = 2;
+  public static final int DRIVETRAIN_LEFT_SPARK = 0;
+  public static final int DRIVETRAIN_RIGHT_SPARK = 1;
+  public static final int ClimbHab_Solenoid_Deploy = 0;
   public static final int ClimbHab_Solenoid_Retract = 1;
   public static final int OI_DRIVER_CONTROLLER = 0;
 
