@@ -7,18 +7,36 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
-
+import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
 public class ClimbHab extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  DoubleSolenoid climbHabSolenoid = null;
+
+  public ClimbHab() {
+    climbHabSolenoid = new DoubleSolenoid(RobotMap.ClimbHab_Solenoid_Deploy, RobotMap.ClimbHab_Solenoid_Retract);
+  }
+
+  
+  public void climbHabUp() {
+    climbHabSolenoid.set(Value.kForward);
+  }
+
+  public void climbHabDown() {
+    climbHabSolenoid.set(Value.kReverse);
+  }
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+
   }
+
 }
