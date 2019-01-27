@@ -20,8 +20,6 @@ public class DriveTrain extends Subsystem {
   Spark leftSpark = null;
   Spark rightSpark = null;
   
-  
-  
   DifferentialDrive differentialDrive = null;
 
   public DriveTrain(){
