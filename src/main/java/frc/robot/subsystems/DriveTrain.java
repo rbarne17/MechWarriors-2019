@@ -19,9 +19,6 @@ public class DriveTrain extends Subsystem {
   // here. Call these from Commands.
   Spark leftSpark = null;
   Spark rightSpark = null;
-
-  
-  
   
   DifferentialDrive differentialDrive = null;
 
