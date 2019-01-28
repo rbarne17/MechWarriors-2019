@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ClimbHab;
@@ -23,10 +24,12 @@ import frc.robot.subsystems.Eyes;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Eyes m_eyes;
+  public static final Subsystem DriveTrain = null;
+public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
   public static DriveTrain m_drivetrain;
   public static OI m_oi;
+public static Object lift;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
