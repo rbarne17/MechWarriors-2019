@@ -28,7 +28,7 @@ public class DriveArcade extends Command {
     double moveSpeed = -Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_MOVE_AXIS);
     double rotateSpeed = Robot.m_oi.driverController.getRawAxis(RobotMap.DRIVER_CONTROLLER_ROTATE_AXIS);
 
-    Robot.m_drivetrain.arcadeDrive(moveSpeed, rotateSpeed);
+    Robot.m_drivetrain.driveByArcade(moveSpeed, rotateSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -40,7 +40,7 @@ public class DriveArcade extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_drivetrain.arcadeDrive(0, 0);
+    Robot.m_drivetrain.driveByArcade(0, 0);
   }
 
   // Called when another command which requires one or more of the same

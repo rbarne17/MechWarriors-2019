@@ -28,7 +28,7 @@ public class DriveWithController extends Command {
 
   // Make this return true when this Command no longer needs to run execute()
   //if (Robot.lift.getEncoderLift() > 1500) {
-   // Robot.DriveTrain.driveByArcade((-Robot.operatorInput.getJoystickY()/2), (-Robot.operatorInput.getJoystickX()/2));
+    Robot.m_drivetrain.driveByArcade((-Robot.m_oi.getJoystickY()/2), (-Robot.m_oi.getJoystickX()/2));
   //} else {
     //Robot.DriveTrain.driveByArcade(-Robot.operatorInput.getLiftStickY(), -Robot.operatorInput.getLiftStickX());
   //}
