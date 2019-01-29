@@ -23,12 +23,12 @@ public class TargetHandling extends Subsystem {
   // here. Call these from Commands.
   public final int ticksPerFoot = 166;
 
-  public Spark leftMotor = new Spark(RobotMap.targetHandlingMotorLeft);
-  public Spark RightMotor = new Spark(RobotMap.targetHandlingMotorRight);
+  public Spark leftMotor = new Spark(RobotMap.TARGET_HANDLING_MOTOR_LEFT);
+  public Spark RightMotor = new Spark(RobotMap.TARGET_HANDLING_MOTOR_RIGHT);
   public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
-  public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
+  public Encoder leftEncoder = new Encoder(RobotMap.LEFT_ENCODER_CHANNEL_1, RobotMap.LEFT_ENCODER_CHANNEL_2, true,
       EncodingType.k4X);
-  public Encoder rightEncoder = new Encoder(RobotMap.leftEncoderChannel1, RobotMap.leftEncoderChannel2, true,
+  public Encoder rightEncoder = new Encoder(RobotMap.LEFT_ENCODER_CHANNEL_1, RobotMap.LEFT_ENCODER_CHANNEL_2, true,
       EncodingType.k4X);
 
   public TargetHandling() {

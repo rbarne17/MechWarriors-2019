@@ -23,7 +23,7 @@ import frc.robot.subsystems.Eyes;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Eyes m_eyes;
+public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
   public static DriveTrain m_drivetrain;
   public static OI m_oi;
