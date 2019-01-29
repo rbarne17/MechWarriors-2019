@@ -7,10 +7,12 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import frc.robot.RobotMap;
+import frc.robot.commands.DriveArcade;
 
 /**
  * Add your docs here.
@@ -18,25 +20,33 @@ import frc.robot.RobotMap;
 public class DriveTrain extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
+  Spark leftSpark = null;
+  Spark rightSpark = null;
+
+  DifferentialDrive differentialDrive = null;
+
+  public DriveTrain() {
+    // Spark
+    leftSpark = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
+    rightSpark = new Spark(RobotMap.DRIVETRAIN_RIGHT_SPARK);
+
+    differentialDrive = new DifferentialDrive(leftSpark, rightSpark);
+
+  }
+
+  public void arcadeDrive(double moveSpeed, double rotateSpeed) {
+    differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
+  }
 
   Talon leftFrontTalon = null;
   Talon leftBackTalon = null;
   Talon rightFrontTalon = null;
   Talon rightBackTalon = null;
 
-  public DriveTrain() {
-    // Talons
-    leftFrontTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_FRONT_TALON);
-    leftBackTalon = new Talon(RobotMap.DRIVETRAIN_LEFT_BACK_TALON);
-    rightFrontTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_FRONT_TALON);
-    rightBackTalon = new Talon(RobotMap.DRIVETRAIN_RIGHT_BACK_TALON);
-  }
-
-  DifferentialDrive DifferentialDrive = null;
-
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    setDefaultCommand(new DriveArcade());
   }
 }
