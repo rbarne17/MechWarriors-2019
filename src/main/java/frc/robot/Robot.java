@@ -7,8 +7,6 @@
 
 package frc.robot;
 
-import org.ietf.jgss.Oid;
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -138,5 +136,12 @@ public static Eyes m_eyes;
    */
   @Override
   public void testPeriodic() {
+  }
+  public class RobotMap{
+
+    public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
+    public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
+    public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
+    public static final int DRIVETRAIN_RIGHT_Back_TALON = 3;
   }
 }

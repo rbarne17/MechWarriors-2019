@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DigitalSource;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -22,6 +24,14 @@ public class RobotMap {
   // public static int rightMotor = 2;
   public static final int ClimbHab_Solenoid_Retract = 1;
   public static final int OI_DRIVER_CONTROLLER = 0;
+public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
+public static final int DRIVETRAIN_LEFT_BACK_TALON = 0;
+public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 0;
+public static final int DRIVETRAIN_RIGHT_BACK_TALON = 0;
+public static final int targetHandlingMotorLeft = 0;
+public static final int targetHandlingMotorRight = 0;
+public static final DigitalSource leftEncoderChannel1 = null;
+public static final DigitalSource leftEncoderChannel2 = null;
 
   // If you are using multiple modules, make sure to define both the port
   // number and the module. For example you with a rangefinder:
