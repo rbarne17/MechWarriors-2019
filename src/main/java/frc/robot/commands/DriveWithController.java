@@ -9,13 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import jdk.internal.util.xml.impl.Input;
 
 public class DriveWithController extends Command {
   public DriveWithController() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.DriveTrain);
+    requires(Robot.m_drivetrain);
   }
 
   // Called just before this Command runs the first time
@@ -28,11 +27,11 @@ public class DriveWithController extends Command {
   protected void execute() {
 
   // Make this return true when this Command no longer needs to run execute()
-  if (Robot.lift.getEncoderLift() > 1500) {
-    Robot.DriveTrain.driveByArcade((-Robot.operatorInput.getJoystickY()/2), (-Robot.operatorInput.getJoystickX()/2));
-  } else {
-    Robot.DriveTrain.driveByArcade(-Robot.operatorInput.getLiftStickY(), -Robot.operatorInput.getLiftStickX());
-  }
+  //if (Robot.lift.getEncoderLift() > 1500) {
+   // Robot.DriveTrain.driveByArcade((-Robot.operatorInput.getJoystickY()/2), (-Robot.operatorInput.getJoystickX()/2));
+  //} else {
+    //Robot.DriveTrain.driveByArcade(-Robot.operatorInput.getLiftStickY(), -Robot.operatorInput.getLiftStickX());
+  //}
     
   }
   @Override
