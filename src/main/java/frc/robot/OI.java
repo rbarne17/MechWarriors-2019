@@ -64,4 +64,12 @@ public class OI {
         D1.whenPressed(new ClimbHabUp());
         D2.whenPressed(new ClimbHabDown());
     }
+
+	public double getJoystickY() {
+		return -driverController.getY();
+	}
+
+	public double getJoystickX() {
+		return driverController.getX();
+	}
 }
