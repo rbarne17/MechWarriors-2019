@@ -27,8 +27,8 @@ public class DriveTrain extends Subsystem {
 	public Spark leftMotor = new Spark(RobotMap.DRIVETRAIN_LEFT_SPARK);
 	public Spark rightMotor = new Spark(RobotMap.DRIVETRAIN_RIGHT_SPARK);
 	// public ADXRS450_Gyro gyro = new ADXRS450_Gyro();
-	private ADXRS450_Gyro leftEncoder;
-	private ADXRS450_Gyro rightEncoder;
+	private Encoder leftEncoder;
+	private Encoder rightEncoder;
 
 	// public Encoder leftEncoder = new Encoder(RobotMap.leftEncoderChannel1,
 	// RobotMap.leftEncoderChannel2, true,
