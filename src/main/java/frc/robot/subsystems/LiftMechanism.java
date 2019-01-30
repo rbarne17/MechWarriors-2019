@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import org.usfirst.frc.team4764.robot.RobotMap ;
 import org.usfirst.frc.team4764.robot.commands.LiftWithController ;
 
+
 import edu.wpi.first.wpilibj.command.Subsystem ;
 import edu.wpi.first.wpilibj.DigitalInput ;
 import edu.wpi.first.wpilibj.Encoder ;
@@ -29,10 +30,34 @@ public final int m-ticksPerInch = 14;
 
 private Spark liftMotor = new Spark(RobotMap.liftMotor) ;
 private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMao.liftLimitSwitchHome);
+private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannel1 RobotMap.liftEncoderChannel2, true
+                              EncodingType.k4X);
+   public Lift( ) {
+     LiftMotor.set(0.0);
 
-  @Override
+   }
+Public int getEncoderLift( ) {
+  return liftEncoder.get( );
+
+}
+
+Public void liftAdjust(double speed) {
+  liftMotor.set(speed);
+
+}
+public boolean liftAtHome(){
+
+  return !liftLimitSwitchHome.get();
+  
+}
+public void encoderReset() {
+  lifEncoder.reset();
+}
+@Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-  }
+    setDefaultCommand(new LiftWithController());
+    
+  } 
 }
