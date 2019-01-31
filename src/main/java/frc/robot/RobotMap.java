@@ -38,4 +38,7 @@ public class RobotMap {
   public static final int RIGHT_ENCODER_CHANNEL_2 = 3;
   public static final int LIFT_MECHANISM_SWITCH_HOME = 4;
 
+  public static final int LIFT_ENCODER_CHANNEL_1 = 5;
+  public static final int LIFT_ENCODER_CHANNEL_2 = 6;
+
 }
