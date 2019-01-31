@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+import frc.robot.commands.LiftWithController;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
@@ -25,10 +26,52 @@ public class LiftMechanism extends Subsystem {
 
   private Spark liftMotor = new Spark(RobotMap.LIFT_MOTOR);
   private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_MECHANISM_SWITCH_HOME);
+  private Encoder liftEncoder = new Encoder(RobotMap.LIFT_ENCODER_CHANNEL_1, RobotMap.LIFT_ENCODER_CHANNEL_1, true,
+  EncodingType.k4X);
+
+  public LiftMechanism() {
+
+		liftMotor.set(0.0);
+
+	}
+
+  public int getEncoderLift() {
+    // Return Encoder Values Need to be fixed
+    return liftEncoder.get();
+  }
+
+  // Controls speed and direction of the robot.
+  // -1 = full reverse; 1 = full forward
+  public void LiftLow(double speed) {
+    liftMotor.set(speed);
+
+  }
+
+  public void liftAdjust(double speed) {
+    liftMotor.set(speed);
+
+  }
+
+  public boolean liftAtHome() {
+    // limit switches return false when triggered
+    return !liftLimitSwitchHome.get();
+  }
+
+  public void reset() {
+    liftAdjust(0.0);
+    encoderReset();
+
+  }
+
+  private void encoderReset() {
+    liftEncoder.reset();
+  }
 
   @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+  protected void initDefaultCommand() {
+    // TODO Auto-generated method stub
+    setDefaultCommand(new LiftWithController());
+
   }
+
 }
