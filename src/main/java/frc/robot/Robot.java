@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ClimbHab;
 import frc.robot.subsystems.Eyes;
+import frc.robot.subsystems.LiftMechanism;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,9 +24,10 @@ import frc.robot.subsystems.Eyes;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Eyes m_eyes;
+public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
   public static DriveTrain m_drivetrain;
+  public static LiftMechanism m_liftmechanism;
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -40,6 +42,7 @@ public class Robot extends TimedRobot {
     m_drivetrain = new DriveTrain();
     m_eyes = new Eyes();
     m_climbhab = new ClimbHab();
+    m_liftmechanism = new LiftMechanism();
     m_oi = new OI();
   }
 
@@ -131,5 +134,12 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void testPeriodic() {
+  }
+  public class RobotMap{
+
+    public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
+    public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
+    public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
+    public static final int DRIVETRAIN_RIGHT_Back_TALON = 3;
   }
 }

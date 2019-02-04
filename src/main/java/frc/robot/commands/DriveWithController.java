@@ -8,11 +8,13 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
-public class ExampleCommand extends Command {
-  public ExampleCommand() {
+public class DriveWithController extends Command {
+  public DriveWithController() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+    requires(Robot.m_drivetrain);
   }
 
   // Called just before this Command runs the first time
@@ -23,9 +25,15 @@ public class ExampleCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-  }
 
   // Make this return true when this Command no longer needs to run execute()
+  //if (Robot.lift.getEncoderLift() > 1500) {
+    Robot.m_drivetrain.driveByArcade((-Robot.m_oi.getJoystickY()/2), (-Robot.m_oi.getJoystickX()/2));
+  //} else {
+    //Robot.DriveTrain.driveByArcade(-Robot.operatorInput.getLiftStickY(), -Robot.operatorInput.getLiftStickX());
+  //}
+    
+  }
   @Override
   protected boolean isFinished() {
     return false;

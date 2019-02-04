@@ -7,17 +7,13 @@
 
 package frc.robot.subsystems;
 
-import org.usfirst.frc.team4764.robot.RobotMap ;
-import org.usfirst.frc.team4764.robot.commands.LiftWithController ;
-
-
-import edu.wpi.first.wpilibj.command.Subsystem ;
-import edu.wpi.first.wpilibj.DigitalInput ;
-import edu.wpi.first.wpilibj.Encoder ;
-import edu.wpi.first.wpilibj.Spark ;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType ;
-import edu.wpi.first.wpilibj.command.Subsystem ;
-
+import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
+import frc.robot.commands.LiftWithController;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 
 /**
  * Add your docs here.
@@ -25,39 +21,57 @@ import edu.wpi.first.wpilibj.command.Subsystem ;
 public class LiftMechanism extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-public final double m_ticksPerInch = 0.15;
-public final int m-ticksPerInch = 14;
+  public final double m_ticksPerFoot = 0.15;
+  public final int m_ticksPerInch = 14;
 
-private Spark liftMotor = new Spark(RobotMap.liftMotor) ;
-private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMao.liftLimitSwitchHome);
-private Encoder liftEncoder = new Encoder(RobotMap.liftEncoderChannel1 RobotMap.liftEncoderChannel2, true
-                              EncodingType.k4X);
-   public Lift( ) {
-     LiftMotor.set(0.0);
+  private Spark liftMotor = new Spark(RobotMap.LIFT_MOTOR);
+  private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_MECHANISM_SWITCH_HOME);
+  private Encoder liftEncoder = new Encoder(RobotMap.LIFT_ENCODER_CHANNEL_1, RobotMap.LIFT_ENCODER_CHANNEL_2, true,
+      EncodingType.k4X);
 
-   }
-Public int getEncoderLift( ) {
-  return liftEncoder.get( );
+  public LiftMechanism() {
 
-}
+    liftMotor.set(0.0);
 
-Public void liftAdjust(double speed) {
-  liftMotor.set(speed);
+  }
 
-}
-public boolean liftAtHome(){
+  public int getEncoderLift() {
+    // Return Encoder Values Need to be fixed
+    return liftEncoder.get();
+  }
 
-  return !liftLimitSwitchHome.get();
-  
-}
-public void encoderReset() {
-  lifEncoder.reset();
-}
-@Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+  // Controls speed and direction of the robot.
+  // -1 = full reverse; 1 = full forward
+  public void LiftLow(double speed) {
+    liftMotor.set(speed);
+
+  }
+
+  public void liftAdjust(double speed) {
+    liftMotor.set(speed);
+
+  }
+
+  public boolean liftAtHome() {
+    // limit switches return false when triggered
+    return !liftLimitSwitchHome.get();
+  }
+
+  public void reset() {
+    liftAdjust(0.0);
+    encoderReset();
+
+  }
+
+  private void encoderReset() {
+    liftEncoder.reset();
+  }
+
+  @Override
+  protected void initDefaultCommand() {
+    // TODO Auto-generated method stub
     setDefaultCommand(new LiftWithController());
-    
-  } 
+
+  }
+
 }

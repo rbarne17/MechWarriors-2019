@@ -15,20 +15,28 @@ package frc.robot;
  */
 public class RobotMap {
 
-  // For example to map the left and right motors, you could define the
-  // following variables to use with your drivetrain subsystem.
-  // public static int leftMotor = 1;
-  // public static int rightMotor = 2;
+  // OI
+  public static final int OI_DRIVER_CONTROLLER = 0;
+
+  // PWM
   public static final int DRIVETRAIN_LEFT_SPARK = 0;
   public static final int DRIVETRAIN_RIGHT_SPARK = 1;
+  public static final int LIFT_MOTOR = 2;
+  public static final int TARGET_HANDLING_MOTOR_RIGHT = 3;
+  public static final int TARGET_HANDLING_MOTOR_LEFT = 4;
+
+  // CAN
   public static final int ClimbHab_Solenoid_Deploy = 0;
   public static final int ClimbHab_Solenoid_Retract = 1;
-  public static final int OI_DRIVER_CONTROLLER = 0;
-  public static final int DRIVER_CONTROLLER_MOVE_AXIS = 0;
-  public static final int DRIVER_CONTROLLER_ROTATE_AXIS = 1;
 
-  // If you are using multiple modules, make sure to define both the port
-  // number and the module. For example you with a rangefinder:
-  // public static int rangefinderPort = 1;
-  // public static int rangefinderModule = 1;
+  // DIO
+  public static final int LEFT_ENCODER_CHANNEL_1 = 0;
+  public static final int LEFT_ENCODER_CHANNEL_2 = 1;
+  public static final int RIGHT_ENCODER_CHANNEL_1 = 2;
+  public static final int RIGHT_ENCODER_CHANNEL_2 = 3;
+  public static final int LIFT_MECHANISM_SWITCH_HOME = 4;
+
+  public static final int LIFT_ENCODER_CHANNEL_1 = 5;
+  public static final int LIFT_ENCODER_CHANNEL_2 = 6;
+
 }

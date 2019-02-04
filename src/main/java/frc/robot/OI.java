@@ -8,7 +8,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.ClimbHabDown;
@@ -47,6 +48,8 @@ public class OI {
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
     public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
+    XboxController xbox = new XboxController(1);
+
     Button D1 = new JoystickButton(driverController, 1);
     Button D2 = new JoystickButton(driverController, 2);
     Button D3 = new JoystickButton(driverController, 3);
@@ -60,8 +63,71 @@ public class OI {
     Button D11 = new JoystickButton(driverController, 11);
     Button D12 = new JoystickButton(driverController, 12);
 
+    Button xboxAButton = new JoystickButton(xbox, 1);
+    Button xboxBButton = new JoystickButton(xbox, 2);
+    Button xboxXButton = new JoystickButton(xbox, 3);
+    Button xboxYButton = new JoystickButton(xbox, 4);
+    Button xboxLBumper = new JoystickButton(xbox, 5);
+    Button xboxRBumper = new JoystickButton(xbox, 6);
+
     public OI() {
         D1.whenPressed(new ClimbHabUp());
         D2.whenPressed(new ClimbHabDown());
     }
+
+    public double getJoystickY() {
+        return -driverController.getY();
+    }
+
+    public double getJoystickX() {
+        return driverController.getX();
+    }
+
+    public double getXboxLeftStickX() {
+        return xbox.getX(Hand.kLeft);
+    }
+
+    public double getXboxRightStickX() {
+        return xbox.getX(Hand.kRight);
+    }
+
+    public double getXboxLeftStickY() {
+        return xbox.getY(Hand.kLeft);
+    }
+
+    public double getXboxRightStickY() {
+        return xbox.getY(Hand.kRight);
+    }
+
+    public double getXboxLeftTrigger() {
+        return xbox.getTriggerAxis(Hand.kLeft);
+    }
+
+    public double getXboxRightTrigger() {
+        return xbox.getTriggerAxis(Hand.kRight);
+    }
+
+    public double getXboxTrigger() {
+        return getXboxLeftTrigger() - getXboxRightTrigger();
+    }
+
+    public double getControllerDriveTrainThrottleValue() {
+        return getJoystickY();
+    }
+
+    public double getControllerDriveTrainRotationValue() {
+        return getJoystickX();
+    }
+
+    public double getControllerGripperValue() {
+
+        return Robot.m_oi.getXboxTrigger();
+    }
+
+    public double getControllerLiftValue() {
+        
+        return Robot.m_oi.getXboxLeftStickY();
+
+    }
+
 }
