@@ -27,13 +27,13 @@ public class LiftMechanism extends Subsystem {
   private Spark liftMotor = new Spark(RobotMap.LIFT_MOTOR);
   private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_MECHANISM_SWITCH_HOME);
   private Encoder liftEncoder = new Encoder(RobotMap.LIFT_ENCODER_CHANNEL_1, RobotMap.LIFT_ENCODER_CHANNEL_2, true,
-  EncodingType.k4X);
+      EncodingType.k4X);
 
   public LiftMechanism() {
 
-		liftMotor.set(0.0);
+    liftMotor.set(0.0);
 
-	}
+  }
 
   public int getEncoderLift() {
     // Return Encoder Values Need to be fixed
