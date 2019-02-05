@@ -39,4 +39,6 @@ public class RobotMap {
   public static final int LIFT_ENCODER_CHANNEL_1 = 5;
   public static final int LIFT_ENCODER_CHANNEL_2 = 6;
 
+  public static final int TARGET_GRIPPER_SPARK = 0;
+
 }
