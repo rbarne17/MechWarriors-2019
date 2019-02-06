@@ -30,6 +30,13 @@ public class TargetArm extends Subsystem {
   // here. Call these from Commands.
   public final double m_ticksPerFoot = 0.15;
   public final int m_ticksPerInch = 15;
+public method getTargetArmUp
+Public method getTargetArmDown
+public method setTargetArmUp
+public method setTargetArmDown
+
+/*set means use encoder and get means use LIFT_MOTOR
+*/
 
   private Spark liftMotor = new Spark(RobotMap.LIFT_MOTOR);
   private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_MECHANISM_SWITCH_HOME);
