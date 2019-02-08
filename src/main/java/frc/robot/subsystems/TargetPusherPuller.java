@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,9 +16,19 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class TargetPusherPuller extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private spark
-  public void setTargetPusherPullerPull(double pullerTarget)
-  public void setTargetPusherPullerPush(double pushTarget)
+  private Spark liftMotor = new Spark(RobotMap.LIFT_MOTOR);
+  private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_MECHANISM_SWITCH_HOME);
+  // private Encoder liftEncoder = new Encoder(RobotMap.LIFT_ENCODER_CHANNEL_1,
+  // RobotMap.LIFT_ENCODER_CHANNEL_2, true,
+  // EncodingType.k4X);
+
+  public void setTargetPusherPullerPull(double pullerTarget) {
+
+  }
+
+  public void setTargetPusherPullerPush(double pushTarget) {
+
+  }
 
   @Override
   public void initDefaultCommand() {
