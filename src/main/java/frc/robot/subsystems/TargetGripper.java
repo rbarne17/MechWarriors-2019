@@ -7,8 +7,10 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.PWMSpeedController;
+import edu.wpi.first.wpilibj.Encoder;
+
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -16,44 +18,55 @@ import frc.robot.RobotMap;
  * Add your docs here.
  */
 public class TargetGripper extends Subsystem {
-  private static final PWMSpeedController rightMotor = null;
+
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-public final int ticksperfoot = 166;
-public Spark targetGripperMotor = new Spark(RobotMap.TARGET_GRIPPER_SPARK);
-  private PWMSpeedController leftMotor;
+  public final int ticksperfoot = 166;
+  public Spark targetGripperMotor = new Spark(RobotMap.TARGET_GRIPPER_SPARK);
+  private Encoder targetGripperEncoder = new Encoder(RobotMap.TARGET_GRIPPER_ENCODER_CHANNEL_1,
+      RobotMap.TARGET_GRIPPER_ENCODER_CHANNEL_2, true, EncodingType.k4X);
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-  }public TargetGripper() {
-	leftMotor.set(0.0);
+  }
 
-  rightMotor.set(0.0);
+  public TargetGripper() {
+    targetGripperEncoder.reset();
 
- 
+    targetGripperMotor.set(0.0);
 
   }
-  public void setTargetGripperUp(double gripperSpeed){
+
+  public void setTargetGripperUp(double gripperSpeed) {
     targetGripperMotor.set(gripperSpeed);
   }
-  public void setTargetGripperDown(double gripperSpeed){
+
+  public void setTargetGripperDown(double gripperSpeed) {
     targetGripperMotor.set(-gripperSpeed);
   }
-  public boolean getTargetGripperUp(){
-    return true;
-  }
-  public boolean getTargetGripperDown(){
-    return true;
-  }
-  public boolean getTargetGripperHatch(){
-    return true;
+
+  public void setTargetGripperHatch(double gripperSpeed) {
+    if (targetGripperEncoder.get() > RobotMap.TARGET_GRIPPER_ENCODER_HATCH_UPPER) {
+      setTargetGripperDown(gripperSpeed);
+    } else {
+      setTargetGripperUp(gripperSpeed);
+    }
   }
 
-
+  public boolean getTargetGripperUp() {
+    return targetGripperEncoder.get() >= RobotMap.TARGET_GRIPPER_ENCODER_UP;
   }
 
-
-    
+  public boolean getTargetGripperDown() {
+    return targetGripperEncoder.get() <= 0.0;
   }
+
+  public boolean getTargetGripperHatch() {
+    int targetGripperPosition = targetGripperEncoder.get();
+    return (RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOWER <= targetGripperPosition
+        && targetGripperPosition <= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_UPPER);
+  }
+
+}

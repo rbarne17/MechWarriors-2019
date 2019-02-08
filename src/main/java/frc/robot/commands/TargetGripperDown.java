@@ -8,9 +8,10 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
-public class GripperUp extends Command {
-  public GripperUp() {
+public class TargetGripperDown extends Command {
+  public TargetGripperDown() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -23,12 +24,13 @@ public class GripperUp extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.m_targetgripper.setTargetGripperDown(.5);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return Robot.m_targetgripper.getTargetGripperDown();
   }
 
   // Called once after isFinished returns true
@@ -41,4 +43,5 @@ public class GripperUp extends Command {
   @Override
   protected void interrupted() {
   }
+
 }
