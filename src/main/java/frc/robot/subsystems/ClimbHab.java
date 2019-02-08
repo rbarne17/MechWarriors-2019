@@ -20,7 +20,7 @@ public class ClimbHab extends Subsystem {
   DoubleSolenoid climbHabSolenoid = null;
 
   public ClimbHab() {
-    climbHabSolenoid = new DoubleSolenoid(RobotMap.ClimbHab_Solenoid_Deploy, RobotMap.ClimbHab_Solenoid_Retract);
+    climbHabSolenoid = new DoubleSolenoid(RobotMap.CLIMBHAB_SOLENOID_DEPLOY, RobotMap.CLIMBHAB_SOLENOID_RETRACT);
   }
 
   
