@@ -33,6 +33,7 @@ public class TargetGripper extends Subsystem {
   }
 
   public TargetGripper() {
+    targetGripperEncoder.reset();
 
     targetGripperMotor.set(0.0);
 
