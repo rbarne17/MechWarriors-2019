@@ -5,14 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package frc.robot.subsystems.TargetArm;
 
-/**
- * Add your docs here.
- */
-public class TargetArm {
-}
-package frc.robot.subsystems;
+package frc.robot.subsystems.TargetArm;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -30,10 +24,10 @@ public class TargetArm extends Subsystem {
   // here. Call these from Commands.
   public final double m_ticksPerFoot = 0.15;
   public final int m_ticksPerInch = 15;
-public method getTargetArmUp
-Public method getTargetArmDown
-public method setTargetArmUp
-public method setTargetArmDown
+public boolean getTargetArmUp(doublearmSpeed)
+public boolean getTargetArmDown(doublearmSpeed)
+public boolean setTargetArmUp(doublearmSpeed)
+public boolean setTargetArmDown(doublearmSpeed)
 
 /*set means use encoder and get means use LIFT_MOTOR
 */
