@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.DigitalSource;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -26,8 +28,8 @@ public class RobotMap {
   public static final int TARGET_HANDLING_MOTOR_LEFT = 4;
 
   // CAN
-  public static final int ClimbHab_Solenoid_Deploy = 0;
-  public static final int ClimbHab_Solenoid_Retract = 1;
+  public static final int CLIMBHAB_SOLENOID_DEPLOY = 0;
+  public static final int CLIMBHAB_SOLENOID_RETRACT = 1;
 
   // DIO
   public static final int LEFT_ENCODER_CHANNEL_1 = 0;
@@ -40,5 +42,15 @@ public class RobotMap {
   public static final int LIFT_ENCODER_CHANNEL_2 = 6;
 
   public static final int TARGET_GRIPPER_SPARK = 0;
+
+  public static final DigitalSource TARGET_GRIPPER_ENCODER_CHANNEL_1 = null;
+
+  public static final DigitalSource TARGET_GRIPPER_ENCODER_CHANNEL_2 = null;
+
+public static final int TARGET_GRIPPER_ENCODER_UP = 0;
+
+public static final int TARGET_GRIPPER_ENCODER_HATCH_LOWER = 0;
+
+public static final int TARGET_GRIPPER_ENCODER_HATCH_UPPER = 0;
 
 }
