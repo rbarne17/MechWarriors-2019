@@ -25,7 +25,7 @@ import frc.robot.subsystems.TargetGripper;
  * project.
  */
 public class Robot extends TimedRobot {
-public static Eyes m_eyes;
+  public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
   public static DriveTrain m_drivetrain;
   public static LiftMechanism m_liftmechanism;
@@ -136,12 +136,5 @@ public static Eyes m_eyes;
    */
   @Override
   public void testPeriodic() {
-  }
-  public class RobotMap{
-
-    public static final int DRIVETRAIN_LEFT_FRONT_TALON = 0;
-    public static final int DRIVETRAIN_LEFT_BACK_TALON = 1;
-    public static final int DRIVETRAIN_RIGHT_FRONT_TALON = 2;
-    public static final int DRIVETRAIN_RIGHT_Back_TALON = 3;
   }
 }
