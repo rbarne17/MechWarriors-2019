@@ -28,7 +28,7 @@ public class ClimbHabUp extends InstantCommand {
   // Called once when the command executes
   @Override
   protected void initialize() {
-    Robot.m_climbhab.climbHabUp();
+    Robot.m_climbhab.setClimbHabUp();
   }
 
 }

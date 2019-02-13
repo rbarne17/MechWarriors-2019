@@ -42,11 +42,11 @@ public class ClimbHab extends Subsystem {
   }
 
 
-  public void setclimbHabUp() {
+  public void setClimbHabUp() {
     climbHabSolenoid.set(Value.kForward);
   }
 
-  public void setclimbHabDown() {
+  public void setClimbHabDown() {
     climbHabSolenoid.set(Value.kReverse);
   }
 
