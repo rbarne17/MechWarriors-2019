@@ -39,4 +39,8 @@ public class RobotMap {
   public static final int LIFT_ENCODER_CHANNEL_1 = 5;
   public static final int LIFT_ENCODER_CHANNEL_2 = 6;
 
+public static final int TARGET_PUSHER_PULLER_MOTOR = 0;
+
+public static final int TARGET_PULLER_MOTOR = 0;
+
 }

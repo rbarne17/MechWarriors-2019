@@ -15,6 +15,8 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ClimbHab;
 import frc.robot.subsystems.Eyes;
 import frc.robot.subsystems.LiftMechanism;
+import frc.robot.subsystems.TargetPuller;
+import frc.robot.subsystems.TargetPusherPuller;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,6 +30,8 @@ public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
   public static DriveTrain m_drivetrain;
   public static LiftMechanism m_liftmechanism;
+  public static TargetPusherPuller m_targetpusherpuller;
+  public static TargetPuller m_targetpuller;
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -43,7 +47,10 @@ public static Eyes m_eyes;
     m_eyes = new Eyes();
     m_climbhab = new ClimbHab();
     m_liftmechanism = new LiftMechanism();
+    m_targetpusherpuller = new TargetPusherPuller();
+    m_targetpuller = new TargetPuller();
     m_oi = new OI();
+
   }
 
   /**
