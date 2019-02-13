@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+
 /**
  * Add your docs here.
  */
@@ -23,12 +24,29 @@ public class ClimbHab extends Subsystem {
     climbHabSolenoid = new DoubleSolenoid(RobotMap.CLIMBHAB_SOLENOID_DEPLOY, RobotMap.CLIMBHAB_SOLENOID_RETRACT);
   }
 
-  
-  public void climbHabUp() {
+  public boolean getClimbHabUp() {
+    if (climbHabSolenoid.get() == Value.kForward) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
+  public boolean getClimbHabDown() {
+    if (climbHabSolenoid.get() == Value.kReverse) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
+  public void setclimbHabUp() {
     climbHabSolenoid.set(Value.kForward);
   }
 
-  public void climbHabDown() {
+  public void setclimbHabDown() {
     climbHabSolenoid.set(Value.kReverse);
   }
 

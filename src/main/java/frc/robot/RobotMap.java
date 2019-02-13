@@ -49,6 +49,8 @@ public class RobotMap {
 
 public static final int TARGET_GRIPPER_ENCODER_UP = 0;
 
+public static final int TARGET_GRIPPER_ENCODER_DOWN = 0;
+
 public static final int TARGET_GRIPPER_ENCODER_HATCH_LOWER = 0;
 
 public static final int TARGET_GRIPPER_ENCODER_HATCH_UPPER = 0;
