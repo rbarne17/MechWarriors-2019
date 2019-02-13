@@ -7,7 +7,9 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -15,7 +17,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class TargetPuller extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public void setTargetPullerPull(double pullerTarget) {
+  private Spark targetPullerMotor = new Spark(RobotMap.TARGET_PULLER_MOTOR);
+
+  public void setTargetPuller(double pullerTarget) {
+    targetPullerMotor.set(pullerTarget);
+  }
+  public void setTargetPullerOff(){
+    targetPullerMotor.set(0.0);
   }
 
   @Override
