@@ -23,13 +23,6 @@ public class RobotMap {
   // PWM
   public static final int DRIVETRAIN_LEFT_SPARK = 0;
   public static final int DRIVETRAIN_RIGHT_SPARK = 1;
-  public static final int LIFT_MOTOR = 2;
-  public static final int TARGET_HANDLING_MOTOR_RIGHT = 3;
-  public static final int TARGET_HANDLING_MOTOR_LEFT = 4;
-
-  // CAN
-  public static final int CLIMBHAB_SOLENOID_DEPLOY = 0;
-  public static final int CLIMBHAB_SOLENOID_RETRACT = 1;
 
   // DIO
   public static final int LEFT_ENCODER_CHANNEL_1 = 0;
@@ -45,17 +38,30 @@ public class RobotMap {
 
   public static final DigitalSource TARGET_GRIPPER_ENCODER_CHANNEL_2 = null;
 
-public static final int TARGET_GRIPPER_ENCODER_UP = 0;
+  public static final int TARGET_GRIPPER_ENCODER_UP = 0;
 
-public static final int TARGET_GRIPPER_ENCODER_DOWN = 0;
+  public static final int TARGET_GRIPPER_ENCODER_DOWN = 0;
 
-public static final int TARGET_GRIPPER_ENCODER_HATCH_LOWER = 0;
+  public static final int TARGET_GRIPPER_ENCODER_HATCH_LOWER = 0;
 
-public static final int TARGET_GRIPPER_ENCODER_HATCH_UPPER = 0;
-public static final int TARGET_PUSHER_PULLER_MOTOR = 0;
+  public static final int TARGET_GRIPPER_ENCODER_HATCH_UPPER = 0;
 
-public static final int TARGET_PULLER_MOTOR = 0;
+  // CAN
+  public static final int TARGET_PUSHER_PULLER_MOTOR = 0;
 
-public static final int TARGET_GRIPPER_MOTOR = 0;
+  public static final int TARGET_PULLER_MOTOR = 0;
 
+  public static final int TARGET_GRIPPER_MOTOR = 0;
+
+  public static final int LIFT_MECHANISM_MOTOR = 5;
+
+  public static final int CLIMBHAB_SOLENOID_DEPLOY = 0;
+
+  public static final int CLIMBHAB_SOLENOID_RETRACT = 1;
+
+  public static final int TARGET_ARM_MOTOR = 6;
+
+public static final DigitalSource TARGET_ARM_ENCODER_CHANNEL_1 = null;
+
+public static final DigitalSource TARGET_ARM_ENCODER_CHANNEL_2 = null;
 }

@@ -24,7 +24,7 @@ public class LiftMechanism extends Subsystem {
   public final double m_ticksPerFoot = 0.15;
   public final int m_ticksPerInch = 14;
 
-  private Spark liftMotor = new Spark(RobotMap.LIFT_MOTOR);
+  private Spark liftMotor = new Spark(RobotMap.LIFT_MECHANISM_MOTOR);
   private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_MECHANISM_SWITCH_HOME);
   private Encoder liftEncoder = new Encoder(RobotMap.LIFT_ENCODER_CHANNEL_1, RobotMap.LIFT_ENCODER_CHANNEL_2, true,
       EncodingType.k4X);

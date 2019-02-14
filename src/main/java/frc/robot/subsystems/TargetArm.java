@@ -6,38 +6,50 @@
 /*----------------------------------------------------------------------------*/
 
 
-package frc.robot.subsystems.TargetArm;
+package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.LiftWithController;
-import edu.wpi.first.wpilibj.DigitalInput;
+
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.PWMSpeedController;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 
 /**
  * Add your docs here.
  */
 public class TargetArm extends Subsystem {
-  // Put methods for controlling this subsystem
+  private static final PWMSpeedController armSpeedMotor = null;
+// Put methods for controlling this subsystem
   // here. Call these from Commands.
   public final double m_ticksPerFoot = 0.15;
   public final int m_ticksPerInch = 15;
-public boolean getTargetArmUp(doublearmSpeed)
-public boolean getTargetArmDown(doublearmSpeed)
-public boolean setTargetArmUp(doublearmSpeed)
-public boolean setTargetArmDown(doublearmSpeed)
+public void getTargetArmUp (double armSpeed) {
+armSpeedMotor.set(armSpeed);
+
+}
+public void getTargetArmDown (double armSpeed) {
+armSpeedMotor.set(armSpeed);
+}
+public void setTargetArmUp(double armSpeed) {
+armSpeedMotor.set(armSpeed);
+
+}
+public void setTargetArmDown(double armSpeed) {
+armSpeedMotor.set(armSpeed);
+
+}
 
 /*set means use encoder and get means use LIFT_MOTOR
 */
 
-  private Spark liftMotor = new Spark(RobotMap.LIFT_MOTOR);
-  private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_MECHANISM_SWITCH_HOME);
-  private Encoder liftEncoder = new Encoder(RobotMap.LIFT_ENCODER_CHANNEL_1, RobotMap.LIFT_ENCODER_CHANNEL_2, true,
+  private WPI_TalonSRX liftMotor = new WPI_TalonSRX(RobotMap.TARGET_ARM_MOTOR);
+  private Encoder liftEncoder = new Encoder(RobotMap.TARGET_ARM_ENCODER_CHANNEL_1, RobotMap.TARGET_ARM_ENCODER_CHANNEL_2, true,
       EncodingType.k4X);
 
-  public LiftMechanism() {
+  public TargetArm() {
 
     liftMotor.set(0.0);
 
@@ -62,7 +74,7 @@ public boolean setTargetArmDown(doublearmSpeed)
 
   public boolean liftAtHome() {
     // limit switches return false when triggered
-    return !liftLimitSwitchHome.get();
+    return true;
   }
 
   public void reset() {
