@@ -7,8 +7,9 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -19,7 +20,7 @@ public class TargetGripper extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   public final int ticksperfoot = 166;
-  public Spark targetGripperMotor = new Spark(RobotMap.TARGET_GRIPPER_SPARK);
+  private WPI_TalonSRX targetGripperMotor = new WPI_TalonSRX(RobotMap.TARGET_GRIPPER_MOTOR);
   private Encoder targetGripperEncoder = new Encoder(RobotMap.TARGET_GRIPPER_ENCODER_CHANNEL_1,
       RobotMap.TARGET_GRIPPER_ENCODER_CHANNEL_2);
 
@@ -40,7 +41,7 @@ public class TargetGripper extends Subsystem {
   public void setTargetGripperDown(double gripperSpeed) {
     targetGripperMotor.set(-gripperSpeed);
   }
-  
+
   public void setTargetGripperHatch(double gripperSpeed) {
     if (getTargetGripperEncoder() < RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOWER) {
       setTargetGripperUp(gripperSpeed);
@@ -64,8 +65,10 @@ public class TargetGripper extends Subsystem {
       return false;
     }
   }
+
   public boolean getTargetGripperHatch() {
-    if (getTargetGripperEncoder() >= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOWER && getTargetGripperEncoder() <= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_UPPER) {
+    if (getTargetGripperEncoder() >= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOWER
+        && getTargetGripperEncoder() <= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_UPPER) {
       return true;
     } else {
       return false;
