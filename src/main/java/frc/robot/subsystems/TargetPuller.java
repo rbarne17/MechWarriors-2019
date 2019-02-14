@@ -7,7 +7,8 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.Spark;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -17,7 +18,7 @@ import frc.robot.RobotMap;
 public class TargetPuller extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private Spark targetPullerMotor = new Spark(RobotMap.TARGET_PULLER_MOTOR);
+  private WPI_TalonSRX targetPullerMotor = new WPI_TalonSRX(RobotMap.TARGET_PULLER_MOTOR);
 
   public void setTargetPuller(double pullerTarget) {
     targetPullerMotor.set(pullerTarget);
