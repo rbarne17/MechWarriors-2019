@@ -64,4 +64,8 @@ public class RobotMap {
 public static final DigitalSource TARGET_ARM_ENCODER_CHANNEL_1 = null;
 
 public static final DigitalSource TARGET_ARM_ENCODER_CHANNEL_2 = null;
+
+public static final int TARGET_ARM_ENCODER_UP = 0;
+
+public static final int TARGET_ARM_ENCODER_DOWN = 0;
 }
