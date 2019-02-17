@@ -10,6 +10,10 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.LiftWithController;
+
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Spark;
@@ -21,50 +25,39 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 public class LiftMechanism extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  public final double m_ticksPerFoot = 0.15;
-  public final int m_ticksPerInch = 14;
-
-  private Spark liftMotor = new Spark(RobotMap.LIFT_MECHANISM_MOTOR);
-  private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_MECHANISM_SWITCH_HOME);
-  private Encoder liftEncoder = new Encoder(RobotMap.LIFT_ENCODER_CHANNEL_1, RobotMap.LIFT_ENCODER_CHANNEL_2, true,
-      EncodingType.k4X);
+  private WPI_TalonSRX liftMechanismMotor = new WPI_TalonSRX(RobotMap.LIFT_MECHANISM_MOTOR);
 
   public LiftMechanism() {
-
-    liftMotor.set(0.0);
+    liftMechanismMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    liftMechanismMotor.setSelectedSensorPosition(0);
+    liftMechanismMotor.set(0.0);
 
   }
 
   public int getEncoderLift() {
     // Return Encoder Values Need to be fixed
-    return liftEncoder.get();
+    return liftMechanismMotor.getSelectedSensorPosition();
   }
-
-  // Controls speed and direction of the robot.
-  // -1 = full reverse; 1 = full forward
-  public void LiftLow(double speed) {
-    liftMotor.set(speed);
-
+  public void setLiftUp(double liftSpeed) {
+    liftMechanismMotor.set(liftSpeed);
   }
-
-  public void liftAdjust(double speed) {
-    liftMotor.set(speed);
-
+  public void setLiftDown(double liftSpeed) {
+    liftMechanismMotor.set(-liftSpeed);
   }
 
   public boolean liftAtHome() {
     // limit switches return false when triggered
-    return !liftLimitSwitchHome.get();
+    return (getEncoderLift() <= RobotMap.LIFT_MECHANISM_HOME);
   }
 
   public void reset() {
-    liftAdjust(0.0);
-    encoderReset();
-
+    liftMechanismMotor.set(0);
+    liftMechanismMotor.setSelectedSensorPosition(0);
   }
 
   private void encoderReset() {
-    liftEncoder.reset();
+    
+    liftMechanismMotor.setSelectedSensorPosition(0);
   }
 
   @Override

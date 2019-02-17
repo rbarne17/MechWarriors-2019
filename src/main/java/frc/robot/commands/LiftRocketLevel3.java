@@ -9,10 +9,12 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class LiftWithController extends Command {
-  public LiftWithController() {
-    requires(Robot.m_liftmechanism);
+public class LiftRocketLevel3 extends Command {
+  public LiftRocketLevel3() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
@@ -23,13 +25,13 @@ public class LiftWithController extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_liftmechanism.setLiftUp(Robot.m_oi.getControllerLiftValue());
+    Robot.m_liftmechanism.setLiftUp(1.0);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return (Robot.m_liftmechanism.getEncoderLift() >= RobotMap.LIFT_MECHANISM_LEVEL_3);
   }
 
   // Called once after isFinished returns true

@@ -5,11 +5,12 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
+
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PWMSpeedController;
@@ -19,29 +20,23 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
  * Add your docs here.
  */
 public class TargetArm extends Subsystem {
-  private static final PWMSpeedController armSpeedMotor = null;
-// Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  public final double m_ticksPerFoot = 0.15;
-  public final int m_ticksPerInch = 15;
 
-
-/*set means use encoder and get means use LIFT_MOTOR
-*/
+  /*
+   * set means use encoder and get means use LIFT_MOTOR
+   */
 
   private WPI_TalonSRX targetArmMotor = new WPI_TalonSRX(RobotMap.TARGET_ARM_MOTOR);
-  private Encoder targetArmEncoder = new Encoder(RobotMap.TARGET_ARM_ENCODER_CHANNEL_1, RobotMap.TARGET_ARM_ENCODER_CHANNEL_2, true,
-      EncodingType.k4X);
 
   public TargetArm() {
-
+    targetArmMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    targetArmMotor.setSelectedSensorPosition(0);
     targetArmMotor.set(0.0);
 
   }
 
   public int getTargetArmEncoder() {
     // Return Encoder Values Need to be fixed
-    return targetArmEncoder.get();
+    return targetArmMotor.getSelectedSensorPosition();
   }
 
   // Controls speed and direction of the robot.
@@ -56,11 +51,6 @@ public class TargetArm extends Subsystem {
 
   }
 
-  public boolean targetArmAtHome() {
-    // limit switches return false when triggered
-    return true;
-  }
-
   public void reset() {
     targetArmAdjust(0.0);
     targetArmEncoderReset();
@@ -68,7 +58,7 @@ public class TargetArm extends Subsystem {
   }
 
   private void targetArmEncoderReset() {
-    targetArmEncoder.reset();
+    targetArmMotor.setSelectedSensorPosition(0);
   }
 
   @Override
@@ -76,27 +66,31 @@ public class TargetArm extends Subsystem {
     // TODO Auto-generated method stub
 
   }
-  public boolean getTargetArmUp () {
-    if (getTargetArmEncoder () >= RobotMap.TARGET_ARM_ENCODER_UP) {
+
+  public boolean getTargetArmUp() {
+    if (getTargetArmEncoder() >= RobotMap.TARGET_ARM_ENCODER_UP) {
       return true;
     } else {
       return false;
     }
-    }
-    public boolean getTargetArmDown () { 
+  }
+
+  public boolean getTargetArmDown() {
     if (getTargetArmEncoder() <= RobotMap.TARGET_ARM_ENCODER_DOWN) {
       return true;
     } else {
       return false;
     }
-    }
-    public void setTargetArmUp(double armSpeed) {
-    armSpeedMotor.set(armSpeed);
-    
-    }
-    public void setTargetArmDown(double armSpeed) {
-    armSpeedMotor.set(armSpeed);
-    
-    }
+  }
+
+  public void setTargetArmUp(double armSpeed) {
+    targetArmMotor.set(armSpeed);
+
+  }
+
+  public void setTargetArmDown(double armSpeed) {
+    targetArmMotor.set(-armSpeed);
+
+  }
 
 }
