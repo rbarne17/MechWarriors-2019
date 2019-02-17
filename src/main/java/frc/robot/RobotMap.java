@@ -29,7 +29,7 @@ public class RobotMap {
   public static final int LEFT_ENCODER_CHANNEL_2 = 1;
   public static final int RIGHT_ENCODER_CHANNEL_1 = 2;
   public static final int RIGHT_ENCODER_CHANNEL_2 = 3;
-  public static final int LIFT_MECHANISM_SWITCH_HOME = 4;
+  public static final int LIFT_MECHANISM_HOME = 4;
 
   public static final int LIFT_ENCODER_CHANNEL_1 = 5;
   public static final int LIFT_ENCODER_CHANNEL_2 = 6;
@@ -68,4 +68,6 @@ public static final DigitalSource TARGET_ARM_ENCODER_CHANNEL_2 = null;
 public static final int TARGET_ARM_ENCODER_UP = 0;
 
 public static final int TARGET_ARM_ENCODER_DOWN = 0;
+
+public static final int LIFT_MECHANISM_LEVEL_3 = 0;
 }
