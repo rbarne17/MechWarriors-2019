@@ -22,27 +22,27 @@ import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 /**
  * Add your docs here.
  */
-public class LiftMechanism extends Subsystem {
+public class Lift extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  private WPI_TalonSRX liftMechanismMotor = new WPI_TalonSRX(RobotMap.LIFT_MECHANISM_MOTOR);
+  private WPI_TalonSRX liftMotor = new WPI_TalonSRX(RobotMap.LIFT_MECHANISM_MOTOR);
 
-  public LiftMechanism() {
-    liftMechanismMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
-    liftMechanismMotor.setSelectedSensorPosition(0);
-    liftMechanismMotor.set(0.0);
+  public Lift() {
+    liftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    liftMotor.setSelectedSensorPosition(0);
+    liftMotor.set(0.0);
 
   }
 
   public int getEncoderLift() {
     // Return Encoder Values Need to be fixed
-    return liftMechanismMotor.getSelectedSensorPosition();
+    return liftMotor.getSelectedSensorPosition();
   }
   public void setLiftUp(double liftSpeed) {
-    liftMechanismMotor.set(liftSpeed);
+    liftMotor.set(liftSpeed);
   }
   public void setLiftDown(double liftSpeed) {
-    liftMechanismMotor.set(-liftSpeed);
+    liftMotor.set(-liftSpeed);
   }
 
   public boolean liftAtHome() {
@@ -50,14 +50,14 @@ public class LiftMechanism extends Subsystem {
     return (getEncoderLift() <= RobotMap.LIFT_MECHANISM_ENCODER_HOME);
   }
 
-  public void reset() {
-    liftMechanismMotor.set(0);
-    liftMechanismMotor.setSelectedSensorPosition(0);
+  public void liftReset() {
+    liftMotor.set(0);
+    liftMotor.setSelectedSensorPosition(0);
   }
 
   private void encoderReset() {
     
-    liftMechanismMotor.setSelectedSensorPosition(0);
+    liftMotor.setSelectedSensorPosition(0);
   }
 
   @Override

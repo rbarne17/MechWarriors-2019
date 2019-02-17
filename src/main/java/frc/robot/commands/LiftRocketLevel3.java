@@ -25,13 +25,13 @@ public class LiftRocketLevel3 extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_liftmechanism.setLiftUp(1.0);
+    Robot.m_lift.setLiftUp(1.0);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return (Robot.m_liftmechanism.getEncoderLift() >= RobotMap.LIFT_MECHANISM_ENCODER_LEVEL_3);
+    return (Robot.m_lift.getEncoderLift() >= RobotMap.LIFT_MECHANISM_ENCODER_LEVEL_3);
   }
 
   // Called once after isFinished returns true

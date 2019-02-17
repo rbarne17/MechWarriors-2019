@@ -12,8 +12,8 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.ClimbHabDown;
-import frc.robot.commands.ClimbHabUp;
+import frc.robot.commands.ClimbDownClimbHab;
+import frc.robot.commands.ClimbUpClimbHab;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -71,8 +71,8 @@ public class OI {
     Button xboxRBumper = new JoystickButton(xbox, 6);
 
     public OI() {
-        D1.whenPressed(new ClimbHabUp());
-        D2.whenPressed(new ClimbHabDown());
+        D1.whenPressed(new ClimbUpClimbHab());
+        D2.whenPressed(new ClimbDownClimbHab());
     }
 
     public double getJoystickY() {

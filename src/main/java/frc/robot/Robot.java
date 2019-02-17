@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ClimbHab;
 import frc.robot.subsystems.Eyes;
-import frc.robot.subsystems.LiftMechanism;
+import frc.robot.subsystems.Lift;
 import frc.robot.subsystems.TargetGripper;
 import frc.robot.subsystems.TargetPuller;
 import frc.robot.subsystems.TargetPusherPuller;
@@ -30,7 +30,7 @@ public class Robot extends TimedRobot {
   public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
   public static DriveTrain m_drivetrain;
-  public static LiftMechanism m_liftmechanism;
+  public static Lift m_lift;
   public static TargetGripper m_targetgripper;
   public static TargetPusherPuller m_targetpusherpuller;
   public static TargetPuller m_targetpuller;
@@ -48,7 +48,7 @@ public class Robot extends TimedRobot {
     m_drivetrain = new DriveTrain();
     m_eyes = new Eyes();
     m_climbhab = new ClimbHab();
-    m_liftmechanism = new LiftMechanism();
+    m_lift = new Lift();
     m_targetpusherpuller = new TargetPusherPuller();
     m_targetpuller = new TargetPuller();
     m_oi = new OI();

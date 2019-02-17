@@ -10,10 +10,9 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class TargetPusherPullerPull extends Command {
-  public TargetPusherPullerPull() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
+public class GripHighTargetGripper extends Command {
+  public GripHighTargetGripper() {
+  
   }
 
   // Called just before this Command runs the first time
@@ -24,19 +23,18 @@ public class TargetPusherPullerPull extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_targetpusherpuller.setTargetPusherPullerPull(1.0);
+    Robot.m_targetgripper.setTargetGripperUp(.5);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return Robot.m_targetgripper.getTargetGripperUp();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_targetpusherpuller.setTargetPusherPullerOff();
   }
 
   // Called when another command which requires one or more of the same
