@@ -47,7 +47,7 @@ public class LiftMechanism extends Subsystem {
 
   public boolean liftAtHome() {
     // limit switches return false when triggered
-    return (getEncoderLift() <= RobotMap.LIFT_MECHANISM_HOME);
+    return (getEncoderLift() <= RobotMap.LIFT_MECHANISM_ENCODER_HOME);
   }
 
   public void reset() {
