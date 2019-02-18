@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class PullTargetPuller extends Command {
   public PullTargetPuller() {
@@ -24,7 +25,7 @@ public class PullTargetPuller extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_targetpuller.setTargetPuller(1.0);
+    Robot.m_targetpuller.setTargetPuller(RobotMap.TARGET_PULLER_SPEED);
   }
 
   // Make this return true when this Command no longer needs to run execute()
