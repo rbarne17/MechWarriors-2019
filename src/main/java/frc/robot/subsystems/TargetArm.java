@@ -7,14 +7,10 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-
+import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.PWMSpeedController;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
 
 /**
  * Add your docs here.
@@ -41,23 +37,14 @@ public class TargetArm extends Subsystem {
 
   // Controls speed and direction of the robot.
   // -1 = full reverse; 1 = full forward
-  public void targetArmLow(double speed) {
-    targetArmMotor.set(speed);
+
+  public void resetTargetArm() {
+    targetArmMotor.set(0.0);
+    resetTargetArmEncoder();
 
   }
 
-  public void targetArmAdjust(double speed) {
-    targetArmMotor.set(speed);
-
-  }
-
-  public void reset() {
-    targetArmAdjust(0.0);
-    targetArmEncoderReset();
-
-  }
-
-  private void targetArmEncoderReset() {
+  private void resetTargetArmEncoder() {
     targetArmMotor.setSelectedSensorPosition(0);
   }
 
@@ -67,19 +54,11 @@ public class TargetArm extends Subsystem {
 
   }
 
-  public boolean getTargetArmUp() {
-    if (getTargetArmEncoder() >= RobotMap.TARGET_ARM_ENCODER_UP) {
-      return true;
+  public void setTargetArmDirection(double armSpeed, int targetArmTarget) {
+    if (getTargetArmEncoder() <= targetArmTarget) {
+      setTargetArmUp(armSpeed);
     } else {
-      return false;
-    }
-  }
-
-  public boolean getTargetArmDown() {
-    if (getTargetArmEncoder() <= RobotMap.TARGET_ARM_ENCODER_DOWN) {
-      return true;
-    } else {
-      return false;
+      setTargetArmDown(armSpeed);
     }
   }
 
