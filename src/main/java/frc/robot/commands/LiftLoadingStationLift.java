@@ -31,7 +31,7 @@ public class LiftLoadingStationLift extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return (Robot.m_lift.getEncoderLift() == RobotMap.LIFT_MECHANISM_ENCODER_LOADING_STATION);
+    return (Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_MECHANISM_ENCODER_LOADING_STATION);
   }
 
   // Called once after isFinished returns true

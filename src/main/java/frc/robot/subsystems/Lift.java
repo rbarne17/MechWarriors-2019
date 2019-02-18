@@ -29,13 +29,13 @@ public class Lift extends Subsystem {
 
   }
 
-  public int getEncoderLift() {
+  public int getLiftEncoder() {
     // Return Encoder Values Need to be fixed
     return liftMotor.getSelectedSensorPosition();
   }
 
   public void setLiftDirection(double liftSpeed, int liftTarget) {
-    if (getEncoderLift() > liftTarget) {
+    if (getLiftEncoder() > liftTarget) {
       setLiftUp(liftSpeed);
     } else {
       setLiftDown(liftSpeed);
@@ -50,12 +50,7 @@ public class Lift extends Subsystem {
     liftMotor.set(-liftSpeed);
   }
 
-  public boolean liftAtHome() {
-    // limit switches return false when triggered
-    return (getEncoderLift() <= RobotMap.LIFT_MECHANISM_ENCODER_HOME);
-  }
-
-  public void liftReset() {
+  public void resetLift() {
     liftMotor.set(0);
     liftMotor.setSelectedSensorPosition(0);
   }

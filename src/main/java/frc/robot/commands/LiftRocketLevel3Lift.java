@@ -31,7 +31,7 @@ public class LiftRocketLevel3Lift extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return (Robot.m_lift.getEncoderLift() == RobotMap.LIFT_MECHANISM_ENCODER_ROCKET_LEVEL_3);
+    return (Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_MECHANISM_ENCODER_ROCKET_LEVEL_3);
   }
 
   // Called once after isFinished returns true
