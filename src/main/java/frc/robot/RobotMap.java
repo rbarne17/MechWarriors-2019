@@ -42,13 +42,12 @@ public class RobotMap {
   public static final int TARGET_PUSHER_PULLER_MOTOR = 9;
 
   // Encoder values
-  public static final int LIFT_MECHANISM_ENCODER_HOME = 4;
   public static final int TARGET_GRIPPER_ENCODER_HIGH = 0;
   public static final int TARGET_GRIPPER_ENCODER_LOW = 0;
   public static final int TARGET_GRIPPER_ENCODER_HATCH_LOW = 0;
+  public static final int TARGET_GRIPPER_ENCODER_HATCH_HIGH = 0;
   public static final int TARGET_ARM_ENCODER_HIGH = 0;
   public static final int TARGET_ARM_ENCODER_LOW = 0;
-  public static final int TARGET_GRIPPER_ENCODER_HATCH_HIGH = 0;
   public static final int LIFT_MECHANISM_ENCODER_ROCKET_LEVEL_3 = 0;
   public static final int LIFT_MECHANISM_ENCODER_CARGO_SHIP = 0;
   public static final int LIFT_MECHANISM_ENCODER_DEPOT = 0;
