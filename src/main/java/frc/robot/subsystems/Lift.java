@@ -14,11 +14,6 @@ import frc.robot.commands.LiftWithController;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.CounterBase.EncodingType;
-
 /**
  * Add your docs here.
  */
@@ -38,9 +33,19 @@ public class Lift extends Subsystem {
     // Return Encoder Values Need to be fixed
     return liftMotor.getSelectedSensorPosition();
   }
+
+  public void setLiftDirection(double liftSpeed, int liftTarget) {
+    if (getEncoderLift() > liftTarget) {
+      setLiftUp(liftSpeed);
+    } else {
+      setLiftDown(liftSpeed);
+    }
+  }
+
   public void setLiftUp(double liftSpeed) {
     liftMotor.set(liftSpeed);
   }
+
   public void setLiftDown(double liftSpeed) {
     liftMotor.set(-liftSpeed);
   }
@@ -52,11 +57,6 @@ public class Lift extends Subsystem {
 
   public void liftReset() {
     liftMotor.set(0);
-    liftMotor.setSelectedSensorPosition(0);
-  }
-
-  private void encoderReset() {
-    
     liftMotor.setSelectedSensorPosition(0);
   }
 
