@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class GripLowTargetGripper extends Command {
   public GripLowTargetGripper() {
@@ -24,13 +25,13 @@ public class GripLowTargetGripper extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_targetgripper.setTargetGripperDown(.5);
+    Robot.m_targetgripper.setTargetGripperDirection(RobotMap.TARGET_GRIPPER_SPEED,RobotMap.TARGET_ARM_ENCODER_LOW);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return Robot.m_targetgripper.getTargetGripperDown();
+    return (Robot.m_targetgripper.getTargetGripperEncoder() <= RobotMap.TARGET_GRIPPER_ENCODER_LOW);
   }
 
   // Called once after isFinished returns true
