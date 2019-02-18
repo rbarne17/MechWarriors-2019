@@ -15,6 +15,7 @@ import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ClimbHab;
 import frc.robot.subsystems.Eyes;
 import frc.robot.subsystems.Lift;
+import frc.robot.subsystems.TargetArm;
 import frc.robot.subsystems.TargetGripper;
 import frc.robot.subsystems.TargetPuller;
 import frc.robot.subsystems.TargetPusherPuller;
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
   public static TargetGripper m_targetgripper;
   public static TargetPusherPuller m_targetpusherpuller;
   public static TargetPuller m_targetpuller;
+  public static TargetArm m_targetarm;
   public static OI m_oi;
 
   Command m_autonomousCommand;
