@@ -7,12 +7,19 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.TimedCommand;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class PushTargetPusherPuller extends Command {
-  public PushTargetPusherPuller() {
+/**
+ * Add your docs here.
+ */
+public class PushTargetPusherPuller extends TimedCommand {
+  /**
+   * Add your docs here.
+   */
+  public PushTargetPusherPuller(double timeout) {
+    super(timeout);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -28,16 +35,9 @@ public class PushTargetPusherPuller extends Command {
     Robot.m_targetpusherpuller.setTargetPusherPullerPush(RobotMap.TARGET_PUSHER_PULLER_SPEED);
   }
 
-  // Make this return true when this Command no longer needs to run execute()
-  @Override
-  protected boolean isFinished() {
-    return false;
-  }
-
-  // Called once after isFinished returns true
+  // Called once after timeout
   @Override
   protected void end() {
-    Robot.m_targetpusherpuller.setTargetPusherPullerOff();
   }
 
   // Called when another command which requires one or more of the same
