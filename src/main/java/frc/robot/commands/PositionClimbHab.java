@@ -10,25 +10,32 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import frc.robot.Robot;
 
-
 /**
  * Add your docs here.
  */
-public class ClimbUpClimbHab extends InstantCommand {
+public class PositionClimbHab extends InstantCommand {
   /**
    * Add your docs here.
    */
-  public ClimbUpClimbHab() {
+
+  private boolean climbUp;
+
+  public PositionClimbHab(boolean climbUp) {
     super();
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    //requires(Robot.m_climbhab);
+    // requires(Robot.m_climbhab);
+    this.climbUp = climbUp;
   }
 
   // Called once when the command executes
   @Override
   protected void initialize() {
-    Robot.m_climbhab.setClimbHabUp();
+    if (climbUp) {
+      Robot.m_climbhab.setClimbHabUp();
+    } else {
+      Robot.m_climbhab.setClimbHabDown();
+    }
   }
 
 }
