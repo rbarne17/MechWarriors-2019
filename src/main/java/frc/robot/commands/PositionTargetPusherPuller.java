@@ -14,12 +14,15 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class PushTargetPusherPuller extends TimedCommand {
+public class PositionTargetPusherPuller extends TimedCommand {
+  private boolean targetPusherPullerPush;
+
   /**
    * Add your docs here.
    */
-  public PushTargetPusherPuller(double timeout) {
+  public PositionTargetPusherPuller(double timeout, boolean targetPusherPullerPush) {
     super(timeout);
+    this.targetPusherPullerPush = targetPusherPullerPush;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
@@ -32,7 +35,12 @@ public class PushTargetPusherPuller extends TimedCommand {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_targetpusherpuller.setTargetPusherPullerPush(RobotMap.TARGET_PUSHER_PULLER_SPEED);
+    if (targetPusherPullerPush) {
+      Robot.m_targetpusherpuller.setTargetPusherPullerPush(RobotMap.TARGET_PUSHER_PULLER_SPEED);
+
+    } else {
+      Robot.m_targetpusherpuller.setTargetPusherPullerPull(RobotMap.TARGET_PUSHER_PULLER_SPEED);
+    }
   }
 
   // Called once after timeout
