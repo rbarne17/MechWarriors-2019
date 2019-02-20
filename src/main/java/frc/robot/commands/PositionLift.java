@@ -11,10 +11,19 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class LiftDepotLift extends Command {
-  public LiftDepotLift() {
+public class PositionLift extends Command {
+  private int liftPositionLow = 0;
+  private int liftPositionHigh = -1;
+
+  public PositionLift(int liftPosition) {
+    this.liftPositionLow = liftPosition;
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
+  }
+
+  public PositionLift(int positionLiftLow, int positionLiftHigh) {
+    this.liftPositionLow = positionLiftLow;
+    this.liftPositionHigh = positionLiftHigh;
   }
 
   // Called just before this Command runs the first time
@@ -25,13 +34,20 @@ public class LiftDepotLift extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_lift.setLiftDirection(RobotMap.LIFT_SPEED,RobotMap.LIFT_MECHANISM_ENCODER_DEPOT);
+    Robot.m_lift.setLiftDirection(RobotMap.LIFT_SPEED, liftPositionLow);
+
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return (Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_MECHANISM_ENCODER_DEPOT);
+    if (liftPositionHigh == -1) {
+      return (Robot.m_targetgripper.getTargetGripperEncoder() == liftPositionLow);
+    } else {
+      return (Robot.m_targetgripper.getTargetGripperEncoder() >= liftPositionLow
+          && Robot.m_targetgripper.getTargetGripperEncoder() <= liftPositionHigh);
+    }
+
   }
 
   // Called once after isFinished returns true
