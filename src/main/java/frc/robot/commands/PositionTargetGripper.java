@@ -11,9 +11,17 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class GripHighTargetGripper extends Command {
-  public GripHighTargetGripper() {
-  
+public class PositionTargetGripper extends Command {
+  private int targetGripperPosition = 0;
+  private int targetGripperPositionHigh = -1;
+
+  public PositionTargetGripper(int targetGripperPosition) {
+    this.targetGripperPosition = targetGripperPosition;
+  }
+
+  public PositionTargetGripper(int targetGripperPositionLow, int targetGripperPositionHigh) {
+    this.targetGripperPosition = targetGripperPositionLow;
+    this.targetGripperPositionHigh = targetGripperPositionHigh;
   }
 
   // Called just before this Command runs the first time
@@ -24,13 +32,18 @@ public class GripHighTargetGripper extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_targetgripper.setTargetGripperDirection(RobotMap.TARGET_GRIPPER_SPEED,RobotMap.TARGET_ARM_ENCODER_HIGH);
+    Robot.m_targetgripper.setTargetGripperDirection(RobotMap.TARGET_GRIPPER_SPEED, targetGripperPosition);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return (Robot.m_targetgripper.getTargetGripperEncoder() >= RobotMap.TARGET_GRIPPER_ENCODER_HIGH);
+    if (targetGripperPositionHigh == -1) {
+      return (Robot.m_targetgripper.getTargetGripperEncoder() == targetGripperPosition);
+    } else {
+      return (Robot.m_targetgripper.getTargetGripperEncoder() >= targetGripperPosition
+          && Robot.m_targetgripper.getTargetGripperEncoder() <= targetGripperPositionHigh);
+    }
   }
 
   // Called once after isFinished returns true
