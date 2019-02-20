@@ -12,8 +12,19 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.ClimbDownClimbHab;
-import frc.robot.commands.ClimbUpClimbHab;
+import frc.robot.commands.ClimbDownHab2;
+import frc.robot.commands.ClimbUpHab2;
+import frc.robot.commands.LoadCargoDepot;
+import frc.robot.commands.LoadCargoLoadingStation;
+import frc.robot.commands.LoadHatchLoadingStation;
+import frc.robot.commands.UnloadCargoCargoShip;
+import frc.robot.commands.UnloadCargoRocketLevel1;
+import frc.robot.commands.UnloadCargoRocketLevel2;
+import frc.robot.commands.UnloadCargoRocketLevel3;
+import frc.robot.commands.UnloadHatchCargoShip;
+import frc.robot.commands.UnloadHatchRocketLevel1;
+import frc.robot.commands.UnloadHatchRocketLevel2;
+import frc.robot.commands.UnloadHatchRocketLevel3;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -47,64 +58,75 @@ public class OI {
     // Start the command when the button is released and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
-    public Joystick driverController = new Joystick(RobotMap.OI_DRIVER_CONTROLLER);
-    XboxController xbox = new XboxController(1);
+    public Joystick driverControllerJoystick = new Joystick(RobotMap.OI_DRIVER_CONTROLLER_JOYSTICK);
+    public XboxController driverControllerXbox = new XboxController(RobotMap.OI_DRIVER_CONTROLLER_XBOX);
 
-    Button D1 = new JoystickButton(driverController, 1);
-    Button D2 = new JoystickButton(driverController, 2);
-    Button D3 = new JoystickButton(driverController, 3);
-    Button D4 = new JoystickButton(driverController, 4);
-    Button D5 = new JoystickButton(driverController, 5);
-    Button D6 = new JoystickButton(driverController, 6);
-    Button D7 = new JoystickButton(driverController, 7);
-    Button D8 = new JoystickButton(driverController, 8);
-    Button D9 = new JoystickButton(driverController, 9);
-    Button D10 = new JoystickButton(driverController, 10);
-    Button D11 = new JoystickButton(driverController, 11);
-    Button D12 = new JoystickButton(driverController, 12);
+    Button D1 = new JoystickButton(driverControllerJoystick, 1);
+    Button D2 = new JoystickButton(driverControllerJoystick, 2);
+    Button D3 = new JoystickButton(driverControllerJoystick, 3);
+    Button D4 = new JoystickButton(driverControllerJoystick, 4);
+    Button D5 = new JoystickButton(driverControllerJoystick, 5);
+    Button D6 = new JoystickButton(driverControllerJoystick, 6);
+    Button D7 = new JoystickButton(driverControllerJoystick, 7);
+    Button D8 = new JoystickButton(driverControllerJoystick, 8);
+    Button D9 = new JoystickButton(driverControllerJoystick, 9);
+    Button D10 = new JoystickButton(driverControllerJoystick, 10);
+    Button D11 = new JoystickButton(driverControllerJoystick, 11);
+    Button D12 = new JoystickButton(driverControllerJoystick, 12);
 
-    Button xboxAButton = new JoystickButton(xbox, 1);
-    Button xboxBButton = new JoystickButton(xbox, 2);
-    Button xboxXButton = new JoystickButton(xbox, 3);
-    Button xboxYButton = new JoystickButton(xbox, 4);
-    Button xboxLBumper = new JoystickButton(xbox, 5);
-    Button xboxRBumper = new JoystickButton(xbox, 6);
+    Button xboxAButton = new JoystickButton(driverControllerXbox, 1);
+    Button xboxBButton = new JoystickButton(driverControllerXbox, 2);
+    Button xboxXButton = new JoystickButton(driverControllerXbox, 3);
+    Button xboxYButton = new JoystickButton(driverControllerXbox, 4);
+    Button xboxLBumper = new JoystickButton(driverControllerXbox, 5);
+    Button xboxRBumper = new JoystickButton(driverControllerXbox, 6);
 
     public OI() {
-        D1.whenPressed(new ClimbUpClimbHab());
-        D2.whenPressed(new ClimbDownClimbHab());
+        D1.whenPressed(new ClimbUpHab2());
+        D2.whenPressed(new ClimbDownHab2());
+        D3.whenPressed(new LoadCargoDepot());
+        D4.whenPressed(new LoadCargoLoadingStation());
+        D5.whenPressed(new LoadHatchLoadingStation());
+        D6.whenPressed(new UnloadHatchCargoShip());
+        D7.whenPressed(new UnloadCargoCargoShip());
+        D8.whenPressed(new UnloadCargoRocketLevel1());
+        D9.whenPressed(new UnloadCargoRocketLevel2());
+        D10.whenPressed(new UnloadCargoRocketLevel3());
+        D11.whenPressed(new UnloadHatchRocketLevel1());
+        xboxAButton.whenPressed(new UnloadHatchRocketLevel2());
+        xboxBButton.whenPressed(new UnloadHatchRocketLevel3());
     }
 
     public double getJoystickY() {
-        return -driverController.getY();
+        return -driverControllerJoystick.getY();
     }
 
     public double getJoystickX() {
-        return driverController.getX();
+        return driverControllerJoystick.getX();
     }
 
     public double getXboxLeftStickX() {
-        return xbox.getX(Hand.kLeft);
+        return driverControllerXbox.getX(Hand.kLeft);
     }
 
     public double getXboxRightStickX() {
-        return xbox.getX(Hand.kRight);
+        return driverControllerXbox.getX(Hand.kRight);
     }
 
     public double getXboxLeftStickY() {
-        return xbox.getY(Hand.kLeft);
+        return driverControllerXbox.getY(Hand.kLeft);
     }
 
     public double getXboxRightStickY() {
-        return xbox.getY(Hand.kRight);
+        return driverControllerXbox.getY(Hand.kRight);
     }
 
     public double getXboxLeftTrigger() {
-        return xbox.getTriggerAxis(Hand.kLeft);
+        return driverControllerXbox.getTriggerAxis(Hand.kLeft);
     }
 
     public double getXboxRightTrigger() {
-        return xbox.getTriggerAxis(Hand.kRight);
+        return driverControllerXbox.getTriggerAxis(Hand.kRight);
     }
 
     public double getXboxTrigger() {
@@ -125,7 +147,7 @@ public class OI {
     }
 
     public double getControllerLiftValue() {
-        
+
         return Robot.m_oi.getXboxLeftStickY();
 
     }

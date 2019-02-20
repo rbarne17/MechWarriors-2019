@@ -16,7 +16,8 @@ package frc.robot;
 public class RobotMap {
 
   // OI
-  public static final int OI_DRIVER_CONTROLLER = 0;
+  public static final int OI_DRIVER_CONTROLLER_JOYSTICK = 0;
+  public static final int OI_DRIVER_CONTROLLER_XBOX = 1;
 
   // PWM
   public static final int DRIVETRAIN_LEFT_SPARK = 0;
@@ -61,4 +62,5 @@ public class RobotMap {
   public static final double TARGET_PUSHER_PULLER_SPEED = .5;
   public static final double TARGET_GRIPPER_SPEED = .5;
   public static final double TARGET_ARM_SPEED = .5;
+
 }
