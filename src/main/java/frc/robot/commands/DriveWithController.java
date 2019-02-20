@@ -26,7 +26,7 @@ public class DriveWithController extends Command {
   @Override
   protected void execute() {
 
-    Robot.DriveTrain.driveByArcade(-Robot.operatorInput.getLiftStickY(), -Robot.operatorInput.getLiftStickX());
+		Robot.m_drivetrain.driveByArcade((-Robot.m_oi.getJoystickY()),( -Robot.m_oi.getJoystickX()));
 
   }
 
