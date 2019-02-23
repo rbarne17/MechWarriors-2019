@@ -23,6 +23,7 @@ public class Lift extends Subsystem {
   // here. Call these from Commands.
   private WPI_TalonSRX liftMotor = new WPI_TalonSRX(RobotMap.LIFT_MECHANISM_MOTOR);
   private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_LIMIT_SWITCH_HOME);
+  private boolean liftDirectionUp;
 
   public Lift() {
     liftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
@@ -36,14 +37,22 @@ public class Lift extends Subsystem {
     return liftMotor.getSelectedSensorPosition();
   }
 
-  public boolean getiLftLimitSwitchHome() {
+  public boolean getLiftLimitSwitchHome() {
     return liftLimitSwitchHome.get();
   }
 
+  public boolean getLiftDirectionUp(){
+    //true for Up, false for Down
+    return liftDirectionUp;
+  }
+
+
   public void setLiftDirection(double liftSpeed, int liftTarget) {
     if (getLiftEncoder() > liftTarget) {
+      liftDirectionUp = true;
       setLiftUp(liftSpeed);
     } else {
+      liftDirectionUp = false;
       setLiftDown(liftSpeed);
     }
   }

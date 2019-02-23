@@ -14,11 +14,10 @@ import frc.robot.RobotMap;
 public class PositionLift extends Command {
   private int liftPositionLow = 0;
   private int liftPositionHigh = -1;
+  private boolean liftDirectionUp;
 
   public PositionLift(int liftPosition) {
     this.liftPositionLow = liftPosition;
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
   }
 
   public PositionLift(int positionLiftLow, int positionLiftHigh) {
@@ -35,17 +34,18 @@ public class PositionLift extends Command {
   @Override
   protected void execute() {
     Robot.m_lift.setLiftDirection(RobotMap.LIFT_SPEED, liftPositionLow);
-
+    liftDirectionUp = Robot.m_lift.getLiftDirectionUp();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (liftPositionHigh == -1) {
-      return (Robot.m_targetgripper.getTargetGripperEncoder() == liftPositionLow);
+    if (Robot.m_lift.getLiftLimitSwitchHome() && !liftDirectionUp) {
+      return true;
+    } else if (liftPositionHigh == -1) {
+      return (Robot.m_lift.getLiftEncoder() == liftPositionLow);
     } else {
-      return (Robot.m_targetgripper.getTargetGripperEncoder() >= liftPositionLow
-          && Robot.m_targetgripper.getTargetGripperEncoder() <= liftPositionHigh);
+      return ((Robot.m_lift.getLiftEncoder() >= liftPositionLow && Robot.m_lift.getLiftEncoder() <= liftPositionHigh));
     }
 
   }
