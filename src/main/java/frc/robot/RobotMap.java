@@ -62,5 +62,6 @@ public class RobotMap {
   public static final double TARGET_PUSHER_PULLER_SPEED = .5;
   public static final double TARGET_GRIPPER_SPEED = .5;
   public static final double TARGET_ARM_SPEED = .5;
+public static final int LIFT_LIMIT_SWITCH_HOME = 0;
 
 }

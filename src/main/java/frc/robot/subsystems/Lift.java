@@ -7,6 +7,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.LiftWithController;
@@ -21,6 +22,7 @@ public class Lift extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private WPI_TalonSRX liftMotor = new WPI_TalonSRX(RobotMap.LIFT_MECHANISM_MOTOR);
+  private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_LIMIT_SWITCH_HOME);
 
   public Lift() {
     liftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
@@ -32,6 +34,10 @@ public class Lift extends Subsystem {
   public int getLiftEncoder() {
     // Return Encoder Values Need to be fixed
     return liftMotor.getSelectedSensorPosition();
+  }
+
+  public boolean getiLftLimitSwitchHome() {
+    return liftLimitSwitchHome.get();
   }
 
   public void setLiftDirection(double liftSpeed, int liftTarget) {
