@@ -53,6 +53,11 @@ public class PositionLift extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    if (Robot.m_lift.getLiftLimitSwitchHome()) {
+      Robot.m_lift.resetLift();
+    } else {
+      Robot.m_lift.stopLift();
+    }
   }
 
   // Called when another command which requires one or more of the same

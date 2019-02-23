@@ -41,11 +41,10 @@ public class Lift extends Subsystem {
     return liftLimitSwitchHome.get();
   }
 
-  public boolean getLiftDirectionUp(){
-    //true for Up, false for Down
+  public boolean getLiftDirectionUp() {
+    // true for Up, false for Down
     return liftDirectionUp;
   }
-
 
   public void setLiftDirection(double liftSpeed, int liftTarget) {
     if (getLiftEncoder() > liftTarget) {
@@ -68,6 +67,10 @@ public class Lift extends Subsystem {
   public void resetLift() {
     liftMotor.set(0);
     liftMotor.setSelectedSensorPosition(0);
+  }
+
+  public void stopLift() {
+    liftMotor.set(0);
   }
 
   @Override
