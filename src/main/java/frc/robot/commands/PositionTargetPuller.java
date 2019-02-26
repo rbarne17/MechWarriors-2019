@@ -14,11 +14,11 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class PullTargetPuller extends TimedCommand {
+public class PositionTargetPuller extends TimedCommand {
   /**
    * Add your docs here.
    */
-  public PullTargetPuller(double timeout) {
+  public PositionTargetPuller(double timeout) {
     super(timeout);
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
