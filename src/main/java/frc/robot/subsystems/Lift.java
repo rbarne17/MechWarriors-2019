@@ -22,13 +22,15 @@ public class Lift extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private WPI_TalonSRX liftMotor = new WPI_TalonSRX(RobotMap.LIFT_MECHANISM_MOTOR);
-  private DigitalInput liftLimitSwitchHome = new DigitalInput(RobotMap.LIFT_LIMIT_SWITCH_HOME);
+  private DigitalInput liftLimitSwitchLow = new DigitalInput(RobotMap.LIFT_LIMIT_SWITCH_LOW);
+  private DigitalInput liftLimitSwitchHigh = new DigitalInput(RobotMap.LIFT_LIMIT_SWITCH_HIGH);
   private boolean liftDirectionUp;
+  private boolean liftDirectionDown;
 
   public Lift() {
     liftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
-    liftMotor.setSelectedSensorPosition(0);
-    liftMotor.set(0.0);
+    stopLiftMotor();
+    resetLiftEncoder();
 
   }
 
@@ -37,8 +39,12 @@ public class Lift extends Subsystem {
     return liftMotor.getSelectedSensorPosition();
   }
 
-  public boolean getLiftLimitSwitchHome() {
-    return liftLimitSwitchHome.get();
+  public boolean getLiftLimitSwitchLow() {
+    return liftLimitSwitchLow.get();
+  }
+
+  public boolean getLiftLimitSwitchHigh() {
+    return liftLimitSwitchHigh.get();
   }
 
   public boolean getLiftDirectionUp() {
@@ -46,31 +52,40 @@ public class Lift extends Subsystem {
     return liftDirectionUp;
   }
 
+  public boolean getLiftDirectionDown() {
+    return liftDirectionDown;
+  }
+
   public void setLiftDirection(double liftSpeed, int liftTarget) {
     if (getLiftEncoder() > liftTarget) {
-      liftDirectionUp = true;
       setLiftUp(liftSpeed);
     } else {
-      liftDirectionUp = false;
       setLiftDown(liftSpeed);
     }
   }
 
   public void setLiftUp(double liftSpeed) {
     liftMotor.set(liftSpeed);
+    liftDirectionUp = true;
+    liftDirectionDown = !liftDirectionUp;
   }
 
   public void setLiftDown(double liftSpeed) {
     liftMotor.set(-liftSpeed);
+    liftDirectionDown = true;
+    liftDirectionUp = !liftDirectionDown;
+
   }
 
-  public void resetLift() {
-    liftMotor.set(0);
+  public void resetLiftEncoder() {
     liftMotor.setSelectedSensorPosition(0);
   }
 
-  public void stopLift() {
+  public void stopLiftMotor() {
     liftMotor.set(0);
+    if (getLiftLimitSwitchLow()) {
+      resetLiftEncoder();
+    }
   }
 
   @Override

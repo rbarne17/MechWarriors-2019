@@ -28,6 +28,9 @@ public class RobotMap {
   public static final int DRIVETRAIN_LEFT_ENCODER_CHANNEL_2 = 1;
   public static final int DRIVETRAIN_RIGHT_ENCODER_CHANNEL_1 = 2;
   public static final int DRIVETRAIN_RIGHT_ENCODER_CHANNEL_2 = 3;
+  public static final int LIFT_LIMIT_SWITCH_LOW = 4;
+  public static final int LIFT_LIMIT_SWITCH_HIGH = 5;
+
 
   // Solenoid valves
   public static final int CLIMBHAB_SOLENOID_DEPLOY = 0;
@@ -62,6 +65,5 @@ public class RobotMap {
   public static final double TARGET_PUSHER_PULLER_SPEED = .5;
   public static final double TARGET_GRIPPER_SPEED = .5;
   public static final double TARGET_ARM_SPEED = .5;
-public static final int LIFT_LIMIT_SWITCH_HOME = 0;
 
 }

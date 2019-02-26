@@ -15,9 +15,11 @@ public class PositionLift extends Command {
   private int liftPositionLow = 0;
   private int liftPositionHigh = -1;
   private boolean liftDirectionUp;
+  private boolean liftDirectionDown;
 
   public PositionLift(int liftPosition) {
     this.liftPositionLow = liftPosition;
+    this.liftPositionHigh = liftPosition;
   }
 
   public PositionLift(int positionLiftLow, int positionLiftHigh) {
@@ -35,14 +37,16 @@ public class PositionLift extends Command {
   protected void execute() {
     Robot.m_lift.setLiftDirection(RobotMap.LIFT_SPEED, liftPositionLow);
     liftDirectionUp = Robot.m_lift.getLiftDirectionUp();
+    liftDirectionDown = !liftDirectionUp;
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (Robot.m_lift.getLiftLimitSwitchHome() && !liftDirectionUp) {
+    if ((Robot.m_lift.getLiftLimitSwitchLow() && liftDirectionDown)
+        || (Robot.m_lift.getLiftLimitSwitchHigh() && liftDirectionUp)) {
       return true;
-    } else if (liftPositionHigh == -1) {
+    } else if (liftPositionHigh == liftPositionLow) {
       return (Robot.m_lift.getLiftEncoder() == liftPositionLow);
     } else {
       return ((Robot.m_lift.getLiftEncoder() >= liftPositionLow && Robot.m_lift.getLiftEncoder() <= liftPositionHigh));
@@ -53,11 +57,8 @@ public class PositionLift extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    if (Robot.m_lift.getLiftLimitSwitchHome()) {
-      Robot.m_lift.resetLift();
-    } else {
-      Robot.m_lift.stopLift();
-    }
+      Robot.m_lift.stopLiftMotor();
+    
   }
 
   // Called when another command which requires one or more of the same
