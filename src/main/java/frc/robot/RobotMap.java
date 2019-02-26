@@ -31,7 +31,6 @@ public class RobotMap {
   public static final int LIFT_LIMIT_SWITCH_LOW = 4;
   public static final int LIFT_LIMIT_SWITCH_HIGH = 5;
 
-
   // Solenoid valves
   public static final int CLIMBHAB_SOLENOID_DEPLOY = 0;
   public static final int CLIMBHAB_SOLENOID_RETRACT = 1;
@@ -58,6 +57,21 @@ public class RobotMap {
   public static final int LIFT_MECHANISM_ENCODER_LOADING_STATION = 0;
   public static final int LIFT_MECHANISM_ENCODER_ROCKET_LEVEL_1 = 0;
   public static final int LIFT_MECHANISM_ENCODER_ROCKET_LEVEL_2 = 0;
+  public static final int LIFT_ENCODER_DEPOT = 0;
+  public static final int TARGET_GRIPPER_ENCODER_DEPOT = 0;
+  public static final int TARGET_ARM_ENCODER_DEPOT = 0;
+  public static final int LIFT_ENCODER_LOADING_STATION = 0;
+  public static final int TARGET_ARM_ENCODER_LOADING_STATION = 0;
+  public static final int TARGET_GRIPPER_ENCODER_LOADING_STATION = 0;
+  public static final int LIFT_ENCODER_CARGO_SHIP = 0;
+  public static final int TARGET_ARM_ENCODER_CARGO_SHIP = 0;
+  public static final int TARGET_GRIPPER_ENCODER_CARGO_SHIP = 0;
+  public static final int TARGET_GRIPPER_ENCODER_ROCKET_LEVEL_1 = 0;
+  public static final int TARGET_ARM_ENCODER_ROCKET_LEVEL_1 = 0;
+  public static final int LIFT_ENCODER_ROCKET_LEVEL_1 = 0;
+  public static final int LIFT_ENCODER_ROCKET_LEVEL_2 = 0;
+  public static final int TARGET_ARM_ENCODER_ROCKET_LEVEL_2 = 0;
+  public static final int TARGET_GRIPPER_ENCODER_ROCKET_LEVEL_2 = 0;
 
   // Motor speeds
   public static final double LIFT_SPEED = .5;
@@ -65,5 +79,8 @@ public class RobotMap {
   public static final double TARGET_PUSHER_PULLER_SPEED = .5;
   public static final double TARGET_GRIPPER_SPEED = .5;
   public static final double TARGET_ARM_SPEED = .5;
+  public static final int LIFT_ENCODER_ROCKET_LEVEL_3 = 0;
+  public static final int TARGET_ARM_ENCODER_ROCKET_LEVEL_3 = 0;
+  public static final int TARGET_GRIPPER_ENCODER_ROCKET_LEVEL_3 = 0;
 
 }
