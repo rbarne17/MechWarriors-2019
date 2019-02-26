@@ -16,7 +16,7 @@ public class UnloadCargoRocketLevel3 extends CommandGroup {
    */
   public UnloadCargoRocketLevel3() {
     addParallel(new PositionTargetPusherPuller(1.00,false)); 
-    addParallel(new PullTargetPuller(1.00));
+    addParallel(new PositionTargetPuller(1.00));
     addParallel(new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_3));
     addParallel(new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_ROCKET_LEVEL_3));
     addParallel(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_ROCKET_LEVEL_3));
