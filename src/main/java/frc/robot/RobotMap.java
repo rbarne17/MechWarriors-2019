@@ -30,6 +30,10 @@ public class RobotMap {
   public static final int DRIVETRAIN_RIGHT_ENCODER_CHANNEL_2 = 3;
   public static final int LIFT_LIMIT_SWITCH_LOW = 4;
   public static final int LIFT_LIMIT_SWITCH_HIGH = 5;
+  public static final int TARGET_ARM_MOTOR_LIMIT_SWITCH_LOW = 6;
+  public static final int TARGET_ARM_MOTOR_LIMIT_SWITCH_HIGH = 7;
+  public static final int TARGET_ARM_LIMIT_SWITCH_LOW = 8;
+  public static final int TARGET_ARM_LIMIT_SWITCH_HIGH = 9;
 
   // Solenoid valves
   public static final int CLIMBHAB_SOLENOID_DEPLOY = 0;
