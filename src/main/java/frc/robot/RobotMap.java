@@ -34,6 +34,8 @@ public class RobotMap {
   public static final int TARGET_ARM_MOTOR_LIMIT_SWITCH_HIGH = 7;
   public static final int TARGET_ARM_LIMIT_SWITCH_LOW = 8;
   public static final int TARGET_ARM_LIMIT_SWITCH_HIGH = 9;
+  public static final int TARGET_GRIPPER_LIMIT_SWITCH_LOW = 0;
+  public static final int TARGET_GRIPPER_LIMIT_SWITCH_HIGH = 0;
 
   // Solenoid valves
   public static final int CLIMBHAB_SOLENOID_DEPLOY = 0;
