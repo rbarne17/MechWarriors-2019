@@ -93,7 +93,8 @@ public class TargetArm extends Subsystem {
 
   public void setTargetArmDown(double armSpeed) {
     targetArmMotor.set(-armSpeed);
-
+    targetArmDirectionDown = true;
+    targetArmDirectionUp = !targetArmDirectionDown;
   }
 
 }
