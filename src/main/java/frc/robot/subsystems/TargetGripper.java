@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
@@ -19,6 +20,27 @@ import frc.robot.RobotMap;
 public class TargetGripper extends Subsystem {
 
   private WPI_TalonSRX targetGripperMotor = new WPI_TalonSRX(RobotMap.TARGET_GRIPPER_MOTOR);
+  private boolean targetGripperDirectionUp;
+  private boolean targetGripperDirectionDown;
+  private DigitalInput targetGripperLimitSwitchLow = new DigitalInput(RobotMap.TARGET_GRIPPER_LIMIT_SWITCH_LOW);
+  private DigitalInput targetGripperLimitSwitchHigh = new DigitalInput(RobotMap.TARGET_GRIPPER_LIMIT_SWITCH_HIGH);
+
+  public boolean getTargetGripperDirectionUp() {
+    return targetGripperDirectionUp;
+  }
+
+  public boolean getTargetGripperDirectionDown() {
+    return targetGripperDirectionDown;
+  }
+
+  public boolean getTargetGripperLimitSwitchLow() {
+    return targetGripperLimitSwitchLow.get();
+
+  }
+
+  public boolean getTargetGripperLimitSwitchHigh() {
+    return targetGripperLimitSwitchHigh.get();
+  }
 
   @Override
   public void initDefaultCommand() {
@@ -42,10 +64,14 @@ public class TargetGripper extends Subsystem {
 
   public void setTargetGripperUp(double gripperSpeed) {
     targetGripperMotor.set(gripperSpeed);
+    targetGripperDirectionUp = true;
+    targetGripperDirectionDown = !targetGripperDirectionUp;
   }
 
   public void setTargetGripperDown(double gripperSpeed) {
     targetGripperMotor.set(-gripperSpeed);
+    targetGripperDirectionDown = true;
+    targetGripperDirectionUp = !targetGripperDirectionDown;
   }
 
   public int getTargetGripperEncoder() {
@@ -54,11 +80,17 @@ public class TargetGripper extends Subsystem {
 
   }
 
-  public void targetGripperReset() {
+  public void stopTargetGripper() {
 
     targetGripperMotor.set(0.0);
     targetGripperMotor.setSelectedSensorPosition(0);
-
+    if (getTargetGripperLimitSwitchLow()) {
+      resetTargetGripperEncoder();
+    }
   }
 
+  public void resetTargetGripperEncoder() {
+    targetGripperMotor.setSelectedSensorPosition(0);
+
+  }
 }
