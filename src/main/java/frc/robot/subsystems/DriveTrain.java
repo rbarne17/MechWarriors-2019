@@ -84,7 +84,6 @@ public class DriveTrain extends Subsystem {
 	}
 
 	public double scalingSpeed(double joystickValue) {
-		// TODO: Find better scaling system
 		// Here's a simple algorithm to add sensitivity adjustment to the joystick:
 		//
 		// x' = a * x^3 + (1-a) * x
