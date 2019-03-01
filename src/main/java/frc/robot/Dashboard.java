@@ -8,11 +8,8 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.ClimbHabDown;
-import frc.robot.commands.ClimbHabUp;
-import frc.robot.commands.TargetGripperDown;
-import frc.robot.commands.TargetGripperHatch;
-import frc.robot.commands.TargetGripperUp;
+import frc.robot.commands.PositionClimbHab;
+import frc.robot.commands.PositionTargetGripper;
 
 /**
  * Add your docs here.
@@ -22,18 +19,19 @@ public class Dashboard {
     public void robotInit() {
         // subsystems display
         SmartDashboard.putData(Robot.m_drivetrain);
-        SmartDashboard.putData(Robot.m_liftmechanism);
+        SmartDashboard.putData(Robot.m_lift);
         SmartDashboard.putData(Robot.m_targetgripper);
+        SmartDashboard.putData(Robot.m_targetarm);
         SmartDashboard.putData(Robot.m_climbhab);
 
-        // commands test
         // TargetGripper
-        SmartDashboard.putData("TargetGripper Up", new TargetGripperUp());
-        SmartDashboard.putData("TargetGripper Down", new TargetGripperDown());
-        SmartDashboard.putData("TargetGripper Hatch", new TargetGripperHatch());
+        SmartDashboard.putData("TargetGripper Up", new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
+        SmartDashboard.putData("TargetGripper Down", new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_LOW));
+        SmartDashboard.putData("TargetGripper Hatch", new PositionTargetGripper(
+                RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOW, RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
         // ClimbHab
-        SmartDashboard.putData("ClimbHab Up", new ClimbHabUp());
-        SmartDashboard.putData("ClimbHab Down", new ClimbHabDown());
+        SmartDashboard.putData("ClimbHab Up", new PositionClimbHab(true));
+        SmartDashboard.putData("ClimbHab Down", new PositionClimbHab(false));
 
     }
 
@@ -43,25 +41,23 @@ public class Dashboard {
         // DriveTrain
         SmartDashboard.putNumber("Percent Throttle", Robot.m_oi.getControllerDriveTrainThrottleValue());
         SmartDashboard.putNumber("Percent Rotation", Robot.m_oi.getControllerDriveTrainRotationValue());
-        // SmartDashboard.putNumber("GyroHeading", Robot.m_drivetrain.getHeading());
         SmartDashboard.putNumber("ACTUAL Percent Throttle",
                 Robot.m_drivetrain.scalingSpeed(Robot.m_oi.getControllerDriveTrainThrottleValue()));
         SmartDashboard.putNumber("ACTUAL Percent Rotation",
                 Robot.m_drivetrain.scalingSpeed(Robot.m_oi.getControllerDriveTrainRotationValue()));
 
-        // LiftMechanism
-        SmartDashboard.putNumber("Lift Encoder", Robot.m_liftmechanism.getEncoderLift());
-        SmartDashboard.putBoolean("LiftAtHome", Robot.m_liftmechanism.liftAtHome());
+        // Lift
+        SmartDashboard.putNumber("Lift Encoder", Robot.m_lift.getLiftEncoder());
+        SmartDashboard.putBoolean("LiftAtLow", Robot.m_lift.getLiftLimitSwitchLow());
         SmartDashboard.putNumber("LiftControllerValue", Robot.m_oi.getControllerLiftValue());
 
         // TargetGripper
-        SmartDashboard.putBoolean("TargetGripperDown", Robot.m_targetgripper.getTargetGripperDown());
-        SmartDashboard.putBoolean("TargetGripperUp", Robot.m_targetgripper.getTargetGripperUp());
-        SmartDashboard.putBoolean("TargetGripperHatch", Robot.m_targetgripper.getTargetGripperHatch());
-
-        // ClimbHab
-        // SmartDashboard.putBoolean("ClimbHabUp", Robot.m_climbhab.getClimbHabUp());
-        // SmartDashboard.putBoolean("ClimbHapDown", Robot.m_climbhab.getClimbHabDown());
+        SmartDashboard.putBoolean("TargetGripperDown", Robot.m_targetgripper.getTargetGripperLimitSwitchLow());
+        SmartDashboard.putBoolean("TargetGripperUp", Robot.m_targetgripper.getTargetGripperLimitSwitchHigh());
+        SmartDashboard.putBoolean("TargetGripperHatch",
+                (Robot.m_targetgripper.getTargetGripperEncoder() >= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOW
+                        && Robot.m_targetgripper
+                                .getTargetGripperEncoder() <= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_HIGH));
 
     }
 }
