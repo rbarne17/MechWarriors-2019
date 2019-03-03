@@ -36,6 +36,7 @@ public class Robot extends TimedRobot {
   public static TargetPusherPuller m_targetpusherpuller;
   public static TargetPuller m_targetpuller;
   public static TargetArm m_targetarm;
+  public static Dashboard m_dashboard;
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -53,7 +54,10 @@ public class Robot extends TimedRobot {
     m_lift = new Lift();
     m_targetpusherpuller = new TargetPusherPuller();
     m_targetpuller = new TargetPuller();
+    m_dashboard = new Dashboard();
     m_oi = new OI();
+
+    m_dashboard.robotInit();
 
   }
 
@@ -137,6 +141,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    m_dashboard.teleopPeriodic();
     Scheduler.getInstance().run();
   }
 
