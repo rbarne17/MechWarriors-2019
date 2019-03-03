@@ -18,7 +18,6 @@ public class TargetPusherPuller extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   private WPI_TalonSRX targetPusherPullerMotor = new WPI_TalonSRX(RobotMap.TARGET_PUSHER_PULLER_MOTOR);
-  
 
   public void setTargetPusherPullerPull(double pullerTarget) {
     targetPusherPullerMotor.set(pullerTarget);
@@ -27,8 +26,17 @@ public class TargetPusherPuller extends Subsystem {
   public void setTargetPusherPullerPush(double pushTarget) {
     targetPusherPullerMotor.set(-pushTarget);
   }
-  public void setTargetPusherPullerOff(){
+
+  public void stopTargetPusherPuller() {
     targetPusherPullerMotor.set(0.0);
+  }
+
+  public boolean getTargetPusherPullerPush() {
+    return (targetPusherPullerMotor.get() > 0);
+  }
+
+  public boolean getTargetPusherPullerPull() {
+    return (targetPusherPullerMotor.get() < 0);
   }
 
   @Override
