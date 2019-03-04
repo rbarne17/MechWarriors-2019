@@ -23,8 +23,13 @@ public class TargetPuller extends Subsystem {
   public void setTargetPuller(double pullerTarget) {
     targetPullerMotor.set(pullerTarget);
   }
-  public void setTargetPullerOff(){
+
+  public void stopTargetPuller() {
     targetPullerMotor.set(0.0);
+  }
+
+  public boolean getTargetPullerPull() {
+    return (targetPullerMotor.get() < 0);
   }
 
   @Override
