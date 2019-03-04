@@ -119,9 +119,9 @@ public class Dashboard {
                 SmartDashboard.putBoolean("TargetPullerPull", Robot.m_targetpuller.getTargetPullerPull());
 
                 // TargetPusherPuller
-                SmartDashboard.putBoolean("TargetPusherPullerDown",
+                SmartDashboard.putBoolean("TargetPusherPullerPush",
                                 Robot.m_targetpusherpuller.getTargetPusherPullerPush());
-                SmartDashboard.putBoolean("TargetPusherPullerUp",
+                SmartDashboard.putBoolean("TargetPusherPullerPull",
                                 Robot.m_targetpusherpuller.getTargetPusherPullerPull());
 
         }
