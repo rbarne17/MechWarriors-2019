@@ -54,7 +54,7 @@ public class Dashboard {
 
                 // TargetPusherPuller
                 SmartDashboard.putData("TargetPusherPuller Push", new PositionTargetPusherPuller(1.0, true));
-                SmartDashboard.putData("TargetPusherPuller Pull", new PositionTargetPusherPuller(1.0, true));
+                SmartDashboard.putData("TargetPusherPuller Pull", new PositionTargetPusherPuller(1.0, false));
 
                 // ClimbHab
                 SmartDashboard.putData("ClimbHab Up", new PositionClimbHab(true));
