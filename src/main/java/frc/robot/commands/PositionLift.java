@@ -17,9 +17,9 @@ public class PositionLift extends Command {
   private boolean liftDirectionUp;
   private boolean liftDirectionDown;
 
-  public PositionLift(int liftPosition) {
-    this.liftPositionLow = liftPosition;
-    this.liftPositionHigh = liftPosition;
+  public PositionLift(int unloadHatchCargoShip) {
+    this.liftPositionLow = unloadHatchCargoShip;
+    this.liftPositionHigh = unloadHatchCargoShip;
   }
 
   public PositionLift(int positionLiftLow, int positionLiftHigh) {
