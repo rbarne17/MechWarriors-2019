@@ -8,12 +8,21 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.ClimbDownHab2;
+import frc.robot.commands.ClimbUpHab2;
+import frc.robot.commands.DriveWithController;
+import frc.robot.commands.LiftWithController;
+import frc.robot.commands.LoadCargoDepot;
+import frc.robot.commands.LoadCargoLoadingStation;
+import frc.robot.commands.LoadHatchLoadingStation;
 import frc.robot.commands.PositionClimbHab;
 import frc.robot.commands.PositionLift;
 import frc.robot.commands.PositionTargetArm;
 import frc.robot.commands.PositionTargetGripper;
 import frc.robot.commands.PositionTargetPuller;
 import frc.robot.commands.PositionTargetPusherPuller;
+import frc.robot.commands.UnloadCargoCargoShip;
+import frc.robot.commands.UnloadHatchCargoShip;
 
 /**
  * Add your docs here.
@@ -37,10 +46,19 @@ public class Dashboard {
                 SmartDashboard.putData("Lift Rocket Level 2", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_2));
                 SmartDashboard.putData("Lift Rocket Level 3", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_3));
 
+                 // CommanGroups
+                 SmartDashboard.putData("Unload Hatch Cargo Ship", new UnloadHatchCargoShip());
+                 SmartDashboard.putData("Unload Cargo Cargo Ship", new UnloadCargoCargoShip());
+                 SmartDashboard.putData("Load Hatch Loading Station", new LoadHatchLoadingStation());
+                 SmartDashboard.putData("Load Cargo Loading Station", new LoadCargoLoadingStation());
+                 SmartDashboard.putData("Load Cargo Depot", new LoadCargoDepot());
+                 SmartDashboard.putData("Lift With Controller", new LiftWithController());
+                 SmartDashboard.putData("Drive With Controller", new DriveWithController());
+                 SmartDashboard.putData("Climb Up Hab 2", new ClimbUpHab2());
+                 SmartDashboard.putData("Climb Down Hab 2", new ClimbDownHab2());
                 // TargetArm
                 SmartDashboard.putData("TargetArm Up", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_HIGH));
                 SmartDashboard.putData("TargetArm Down", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_LOW));
-
                 // TargetGripper
                 SmartDashboard.putData("TargetGripper Up",
                                 new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HIGH));

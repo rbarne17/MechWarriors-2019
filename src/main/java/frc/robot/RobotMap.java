@@ -82,5 +82,6 @@ public class RobotMap {
   public static final double TARGET_PUSHER_PULLER_SPEED = .5;
   public static final double TARGET_GRIPPER_SPEED = .5;
   public static final double TARGET_ARM_SPEED = .5;
+public static final String UNLOAD_HATCH_CARGO_SHIP = null;
 
 }

@@ -28,7 +28,8 @@ import frc.robot.subsystems.TargetPusherPuller;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static Eyes m_eyes;
+  public static final String LIFT_WITH_CONTROLLER = null;
+public static Eyes m_eyes;
   public static ClimbHab m_climbhab;
   public static DriveTrain m_drivetrain;
   public static Lift m_lift;
