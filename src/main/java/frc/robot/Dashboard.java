@@ -10,8 +10,6 @@ package frc.robot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ClimbDownHab2;
 import frc.robot.commands.ClimbUpHab2;
-import frc.robot.commands.DriveWithController;
-import frc.robot.commands.LiftWithController;
 import frc.robot.commands.LoadCargoDepot;
 import frc.robot.commands.LoadCargoLoadingStation;
 import frc.robot.commands.LoadHatchLoadingStation;
@@ -21,8 +19,6 @@ import frc.robot.commands.PositionTargetArm;
 import frc.robot.commands.PositionTargetGripper;
 import frc.robot.commands.PositionTargetPuller;
 import frc.robot.commands.PositionTargetPusherPuller;
-import frc.robot.commands.UnloadCargoCargoShip;
-import frc.robot.commands.UnloadHatchCargoShip;
 
 /**
  * Add your docs here.
@@ -71,7 +67,7 @@ public class Dashboard {
                 // Command Groups
                 SmartDashboard.putData("Climb Hab Down 2", new ClimbDownHab2());
                 SmartDashboard.putData("Climb Hab Up 2", new ClimbUpHab2());
-                SmartDashboard.putDate("Load Cargo Depot", new LoadCargoDepot());
+                SmartDashboard.putData("Load Cargo Depot", new LoadCargoDepot());
                 SmartDashboard.putData("Load Cargo Loading Station", new LoadCargoLoadingStation());
                 SmartDashboard.putData("Load Hatch Loading Station", new LoadHatchLoadingStation());
 
