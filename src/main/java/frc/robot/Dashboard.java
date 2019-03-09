@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
+import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ClimbDownHab2;
 import frc.robot.commands.ClimbUpHab2;
@@ -26,13 +28,16 @@ import frc.robot.commands.PositionTargetPusherPuller;
 public class Dashboard {
 
         public void robotInit() {
+                
+                
                 // subsystems display
-                SmartDashboard.putData(Robot.m_drivetrain);
-                SmartDashboard.putData(Robot.m_lift);
-                SmartDashboard.putData(Robot.m_targetgripper);
-                SmartDashboard.putData(Robot.m_targetarm);
-                SmartDashboard.putData(Robot.m_climbhab);
-                SmartDashboard.putData(Robot.m_eyes);
+                ShuffleboardTab subsystemsTab = Shuffleboard.getTab("Subsystems");
+                subsystemsTab.add("DriveTrain", Robot.m_drivetrain);
+                subsystemsTab.add("Lift", Robot.m_lift);
+                subsystemsTab.add("TargetGripper", Robot.m_targetgripper);
+                subsystemsTab.add("TargetArm", Robot.m_targetarm);
+                subsystemsTab.add("ClimbHab", Robot.m_climbhab);
+                subsystemsTab.add("Eyes", Robot.m_eyes);
 
                 // Lift
                 SmartDashboard.putData("Lift Cargo Ship", new PositionLift(RobotMap.LIFT_ENCODER_CARGO_SHIP));
@@ -45,6 +50,7 @@ public class Dashboard {
                 // TargetArm
                 SmartDashboard.putData("TargetArm Up", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_HIGH));
                 SmartDashboard.putData("TargetArm Down", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_LOW));
+
                 // TargetGripper
                 SmartDashboard.putData("TargetGripper Up",
                                 new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
