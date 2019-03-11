@@ -40,49 +40,49 @@ public class Dashboard {
                 subsystemsTab.add("Eyes", Robot.m_eyes);
 
                 // Lift
-                ShuffleboardTab subsystemsTab = Shuffleboard.getTab("Subsystems");
-                SmartDashboard.putData("Lift Cargo Ship", new PositionLift(RobotMap.LIFT_ENCODER_CARGO_SHIP));
-                SmartDashboard.putData("Lift Depot", new PositionLift(RobotMap.LIFT_ENCODER_DEPOT));
-                SmartDashboard.putData("Lift Loading Station", new PositionLift(RobotMap.LIFT_ENCODER_LOADING_STATION));
-                SmartDashboard.putData("Lift Rocket Level 1", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_1));
-                SmartDashboard.putData("Lift Rocket Level 2", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_2));
-                SmartDashboard.putData("Lift Rocket Level 3", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_3));
+                ShuffleboardTab liftTab = Shuffleboard.getTab("Lift");
+                liftTab.add("Lift Cargo Ship", new PositionLift(RobotMap.LIFT_ENCODER_CARGO_SHIP));
+                liftTab.add("Lift Depot", new PositionLift(RobotMap.LIFT_ENCODER_DEPOT));
+                liftTab.add("Lift Loading Station", new PositionLift(RobotMap.LIFT_ENCODER_LOADING_STATION));
+                liftTab.add("Lift Rocket Level 1", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_1));
+                liftTab.add("Lift Rocket Level 2", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_2));
+                liftTab.add("Lift Rocket Level 3", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_3));
 
                 // TargetArm
-                ShuffleboardTab subsystemsTab = Shuffleboard.getTab("Subsystems");
-                SmartDashboard.putData("TargetArm Up", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_HIGH));
-                SmartDashboard.putData("TargetArm Down", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_LOW));
+                ShuffleboardTab targetArmTab = Shuffleboard.getTab("TargetArm");
+                targetArmTab.add("TargetArm Up", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_HIGH));
+                targetArmTab.add("TargetArm Down", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_LOW));
 
                 // TargetGripper
-                ShuffleboardTab subsystemsTab = Shuffleboard.getTab("Subsystems");
-                SmartDashboard.putData("TargetGripper Up",
+                ShuffleboardTab targetGripperTab = Shuffleboard.getTab("TargetGripper");
+                targetGripperTab.add("TargetGripper Up",
                                 new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
-                SmartDashboard.putData("TargetGripper Down",
+                targetGripperTab.add("TargetGripper Down",
                                 new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_LOW));
-                SmartDashboard.putData("TargetGripper Hatch", new PositionTargetGripper(
+                targetGripperTab.add("TargetGripper Hatch", new PositionTargetGripper(
                                 RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOW, RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
 
                 // TargetPuller
-                ShuffleboardTab subsystemsTab = Shuffleboard.getTab("Subsystems");
-                SmartDashboard.putData("TargetPuller Pull", new PositionTargetPuller(1.0));
+                ShuffleboardTab targetPullerTab = Shuffleboard.getTab("TargetPuller");
+                targetPullerTab.add("TargetPuller Pull", new PositionTargetPuller(1.0));
 
                 // TargetPusherPuller
                 ShuffleboardTab targetPusherPullerTab = Shuffleboard.getTab("TargetPusherPuller");
-                SmartDashboard.putData("TargetPusherPuller Push", new PositionTargetPusherPuller(1.0, true));
-                SmartDashboard.putData("TargetPusherPuller Pull", new PositionTargetPusherPuller(1.0, false));
+                targetPusherPullerTab.add("TargetPusherPuller Push", new PositionTargetPusherPuller(1.0, true));
+                targetPusherPullerTab.add("TargetPusherPuller Pull", new PositionTargetPusherPuller(1.0, false));
 
                 // ClimbHab
                 ShuffleboardTab climbHabTab = Shuffleboard.getTab("ClimbHab");
-                SmartDashboard.putData("ClimbHab Up", new PositionClimbHab(true));
-                SmartDashboard.putData("ClimbHab Down", new PositionClimbHab(false));
+                climbHabTab.add("ClimbHab Up", new PositionClimbHab(true));
+                climbHabTab.add("ClimbHab Down", new PositionClimbHab(false));
 
                 // Command Groups
                 ShuffleboardTab commandGroupsTab = Shuffleboard.getTab("Command Groups");
-                SmartDashboard.putData("Climb Hab Down 2", new ClimbDownHab2());
-                SmartDashboard.putData("Climb Hab Up 2", new ClimbUpHab2());
-                SmartDashboard.putData("Load Cargo Depot", new LoadCargoDepot());
-                SmartDashboard.putData("Load Cargo Loading Station", new LoadCargoLoadingStation());
-                SmartDashboard.putData("Load Hatch Loading Station", new LoadHatchLoadingStation());
+                commandGroupsTab.add("Climb Hab Down 2", new ClimbDownHab2());
+                commandGroupsTab.add("Climb Hab Up 2", new ClimbUpHab2());
+                commandGroupsTab.add("Load Cargo Depot", new LoadCargoDepot());
+                commandGroupsTab.add("Load Cargo Loading Station", new LoadCargoLoadingStation());
+                commandGroupsTab.add("Load Hatch Loading Station", new LoadHatchLoadingStation());
 
         }
 
