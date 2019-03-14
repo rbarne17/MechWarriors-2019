@@ -15,19 +15,16 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class ClimbHab extends Subsystem {
+public class TargetIntakeDrop extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  DoubleSolenoid climbHabSolenoid1 = null;
-  DoubleSolenoid climbHabSolenoid2 = null;
-  public ClimbHab() {
-    climbHabSolenoid1 = new DoubleSolenoid(RobotMap.CLIMBHAB_SOLENOID_1_DEPLOY, RobotMap.CLIMBHAB_SOLENOID_1_RETRACT);
-    climbHabSolenoid2 = new DoubleSolenoid(RobotMap.CLIMBHAB_SOLENOID_2_DEPLOY, RobotMap.CLIMBHAB_SOLENOID_2_RETRACT);
-
+   DoubleSolenoid TargetIntakeDropSolenoid = null;
+public TargetIntakeDrop() {
+    TargetIntakeDropSolenoid = new DoubleSolenoid(RobotMap.TARGET_INTAKE_DROP_DEPLOY, RobotMap.TARGET_INTAKE_DROP_RETRACT);
   }
 
-  public boolean getClimbHabUp() {
-    if (climbHabSolenoid1.get() == Value.kForward) {
+  public boolean getTargetIntakeDropUp() {
+    if (TargetIntakeDropSolenoid.get() == Value.kForward) {
       return true;
     } else {
       return false;
@@ -35,8 +32,8 @@ public class ClimbHab extends Subsystem {
 
   }
 
-  public boolean getClimbHabDown() {
-    if (climbHabSolenoid1.get() == Value.kReverse) {
+  public boolean getTargetIntakeDropDown() {
+    if (TargetIntakeDropSolenoid.get() == Value.kReverse) {
       return true;
     } else {
       return false;
@@ -44,21 +41,18 @@ public class ClimbHab extends Subsystem {
   }
 
 
-  public void setClimbHabUp() {
-    climbHabSolenoid1.set(Value.kForward);
-    climbHabSolenoid2.set(Value.kForward);
+  public void setTargetIntakeDropUp() {
+    TargetIntakeDropSolenoid.set(Value.kForward);
   }
 
-  public void setClimbHabDown() {
-    climbHabSolenoid1.set(Value.kReverse);
-    climbHabSolenoid2.set(Value.kReverse);
+  public void setTargetIntakeDropDown() {
+    TargetIntakeDropSolenoid.set(Value.kReverse);
   }
+
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-
   }
-
 }
