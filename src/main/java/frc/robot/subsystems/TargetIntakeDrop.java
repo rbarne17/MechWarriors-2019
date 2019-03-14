@@ -7,25 +7,21 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
  */
-public class ClimbHab extends Subsystem {
+public class TargetIntakeDrop extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  DoubleSolenoid climbHabSolenoid = null;
-
-  public ClimbHab() {
-    climbHabSolenoid = new DoubleSolenoid(RobotMap.CLIMBHAB_SOLENOID_DEPLOY, RobotMap.CLIMBHAB_SOLENOID_RETRACT);
+   DoubleSolenoid targetIntakeDrop = null;
+public targetIntakeDrop() {
+    targetIntakeDrop = new DoubleSolenoid(RobotMap.TARGET_INTAKE_DROP_DEPLOY, RobotMap.TARGET_INTAKE_DROP_RETRACT);
   }
 
-  public boolean getClimbHabUp() {
-    if (climbHabSolenoid.get() == Value.kForward) {
+  public boolean getTargetIntakeDropUp() {
+    if (targetIntakeDrop.get() == Value.kForward) {
       return true;
     } else {
       return false;
@@ -33,8 +29,8 @@ public class ClimbHab extends Subsystem {
 
   }
 
-  public boolean getClimbHabDown() {
-    if (climbHabSolenoid.get() == Value.kReverse) {
+  public boolean getTargetIntakeDropDown() {
+    if (targetIntakeDrop.get() == Value.kReverse) {
       return true;
     } else {
       return false;
@@ -42,12 +38,12 @@ public class ClimbHab extends Subsystem {
   }
 
 
-  public void setClimbHabUp() {
-    climbHabSolenoid.set(Value.kForward);
+  public void setTargetIntakeDropUp() {
+    targetIntakeDrop.set(Value.kForward);
   }
 
-  public void setClimbHabDown() {
-    climbHabSolenoid.set(Value.kReverse);
+  public void setTargetIntakeDropDown() {
+    targetIntakeDrop.set(Value.kReverse);
   }
 
   @Override
@@ -57,4 +53,10 @@ public class ClimbHab extends Subsystem {
 
   }
 
+}
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
+  }
 }
