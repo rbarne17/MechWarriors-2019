@@ -19,6 +19,14 @@ import frc.robot.commands.PositionTargetArm;
 import frc.robot.commands.PositionTargetGripper;
 import frc.robot.commands.PositionTargetPuller;
 import frc.robot.commands.PositionTargetPusherPuller;
+import frc.robot.commands.UnloadCargoCargoShip;
+import frc.robot.commands.UnloadCargoRocketLevel1;
+import frc.robot.commands.UnloadCargoRocketLevel2;
+import frc.robot.commands.UnloadCargoRocketLevel3;
+import frc.robot.commands.UnloadHatchCargoShip;
+import frc.robot.commands.UnloadHatchRocketLevel1;
+import frc.robot.commands.UnloadHatchRocketLevel2;
+import frc.robot.commands.UnloadHatchRocketLevel3;
 
 /**
  * Add your docs here.
@@ -70,7 +78,14 @@ public class Dashboard {
                 SmartDashboard.putData("Load Cargo Depot", new LoadCargoDepot());
                 SmartDashboard.putData("Load Cargo Loading Station", new LoadCargoLoadingStation());
                 SmartDashboard.putData("Load Hatch Loading Station", new LoadHatchLoadingStation());
-
+                SmartDashboard.putData("Unload Cargo Cargo Ship", new UnloadCargoCargoShip());
+                SmartDashboard.putData("Unload Cargo Rocket Level 1", new UnloadCargoRocketLevel1());
+                SmartDashboard.putData("Unload Cargo Rocket Level 2", new UnloadCargoRocketLevel2());
+                SmartDashboard.putData("Unload Cargo Rocket Level 3", new UnloadCargoRocketLevel3());
+                SmartDashboard.putData("Unload Hatch Cargo Ship", new UnloadHatchCargoShip());
+                SmartDashboard.putData("Unload Hatch Rocket Level 1", new UnloadHatchRocketLevel1());
+                SmartDashboard.putData("Unload Hatch Rocket Level 2", new UnloadHatchRocketLevel2());
+                SmartDashboard.putData("Unload Hatch Rocket Level 3", new UnloadHatchRocketLevel3());
         }
 
         public void teleopPeriodic()
