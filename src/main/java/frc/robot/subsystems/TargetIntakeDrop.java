@@ -18,13 +18,13 @@ import frc.robot.RobotMap;
 public class TargetIntakeDrop extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-   DoubleSolenoid targetIntakeDrop = null;
+   DoubleSolenoid TargetIntakeDropSolenoid = null;
 public TargetIntakeDrop() {
-    targetIntakeDrop = new DoubleSolenoid(RobotMap.TARGET_INTAKE_DROP_DEPLOY, RobotMap.TARGET_INTAKE_DROP_RETRACT);
+    TargetIntakeDropSolenoid = new DoubleSolenoid(RobotMap.TARGET_INTAKE_DROP_DEPLOY, RobotMap.TARGET_INTAKE_DROP_RETRACT);
   }
 
   public boolean getTargetIntakeDropUp() {
-    if (targetIntakeDrop.get() == Value.kForward) {
+    if (TargetIntakeDropSolenoid.get() == Value.kForward) {
       return true;
     } else {
       return false;
@@ -33,7 +33,7 @@ public TargetIntakeDrop() {
   }
 
   public boolean getTargetIntakeDropDown() {
-    if (targetIntakeDrop.get() == Value.kReverse) {
+    if (TargetIntakeDropSolenoid.get() == Value.kReverse) {
       return true;
     } else {
       return false;
@@ -42,11 +42,11 @@ public TargetIntakeDrop() {
 
 
   public void setTargetIntakeDropUp() {
-    targetIntakeDrop.set(Value.kForward);
+    TargetIntakeDropSolenoid.set(Value.kForward);
   }
 
   public void setTargetIntakeDropDown() {
-    targetIntakeDrop.set(Value.kReverse);
+    TargetIntakeDropSolenoid.set(Value.kReverse);
   }
 
 
