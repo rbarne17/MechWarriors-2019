@@ -12,16 +12,16 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  * Add your docs here.
  */
-public class TargetIntakeDrop extends Subsystem {
+public class ClimbhabSolenoid3 extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-   DoubleSolenoid targetIntakeDrop = null;
-public targetIntakeDrop() {
-    targetIntakeDrop = new DoubleSolenoid(RobotMap.TARGET_INTAKE_DROP_DEPLOY, RobotMap.TARGET_INTAKE_DROP_RETRACT);
+  DoubleSolenoid ClimbhabSolenoid3 = null;
+public climbhabSolenoid3() {
+    climbhabSolenoid3 = new DoubleSolenoid(RobotMap.CLIMBHAB_SOLENOID_3_DEPLOY, RobotMap.CLIMBHAB_SOLENOID_3_RETRACT);
   }
 
-  public boolean getTargetIntakeDropUp() {
-    if (targetIntakeDrop.get() == Value.kForward) {
+  public boolean getClimbhabSolenoid3Up() {
+    if (climbhabSolenoid3.get() == Value.kForward) {
       return true;
     } else {
       return false;
@@ -29,8 +29,8 @@ public targetIntakeDrop() {
 
   }
 
-  public boolean getTargetIntakeDropDown() {
-    if (targetIntakeDrop.get() == Value.kReverse) {
+  public boolean getClimbhabSolenoid3Down() {
+    if (climbhabSolenoid3.get() == Value.kReverse) {
       return true;
     } else {
       return false;
@@ -38,18 +38,23 @@ public targetIntakeDrop() {
   }
 
 
-  public void setTargetIntakeDropUp() {
-    targetIntakeDrop.set(Value.kForward);
+  public void setClimbHabSolenoid3Up() {
+    climbhabSolenoid3.set(Value.kForward);
   }
 
-  public void setTargetIntakeDropDown() {
-    targetIntakeDrop.set(Value.kReverse);
+  public void setClimbHabSolenoid3Down() {
+    climbhabSolenoid3.set(Value.kReverse);
   }
 
-}
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+
   }
+
+}
+
+
+  
 }
