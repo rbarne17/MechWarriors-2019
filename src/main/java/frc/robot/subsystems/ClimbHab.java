@@ -15,17 +15,19 @@ import frc.robot.RobotMap;
 /**
  * Add your docs here.
  */
-public class climbhabSolenoid2 extends Subsystem {
+public class ClimbHab extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  DoubleSolenoid climbhabSolenoid2 = null;
+  DoubleSolenoid climbHabSolenoid1 = null;
+  DoubleSolenoid climbHabSolenoid2 = null;
+  public ClimbHab() {
+    climbHabSolenoid1 = new DoubleSolenoid(RobotMap.CLIMBHAB_SOLENOID_DEPLOY, RobotMap.CLIMBHAB_SOLENOID_RETRACT);
+    climbHabSolenoid2 = new DoubleSolenoid(RobotMap.CLIMBHAB_SOLENOID_DEPLOY, RobotMap.CLIMBHAB_SOLENOID_RETRACT);
 
-  public climbhabSolenoid2() {
-    climbhabSolenoid2 = new DoubleSolenoid(RobotMap.CLIMBHAB_SOLENOID_2_DEPLOY, RobotMap.CLIMBHAB_SOLENOID_2_RETRACT);
   }
 
-  public boolean getClimbhabSolenoid2Up() {
-    if (climbhabSolenoid2.get() == Value.kForward) {
+  public boolean getClimbHabUp() {
+    if (climbHabSolenoid1.get() == Value.kForward) {
       return true;
     } else {
       return false;
@@ -33,8 +35,8 @@ public class climbhabSolenoid2 extends Subsystem {
 
   }
 
-  public boolean getClimbhabSolenoid2Down() {
-    if (climbhabSolenoid2.get() == Value.kReverse) {
+  public boolean getClimbHabDown() {
+    if (climbHabSolenoid1.get() == Value.kReverse) {
       return true;
     } else {
       return false;
@@ -42,12 +44,14 @@ public class climbhabSolenoid2 extends Subsystem {
   }
 
 
-  public void setClimbHabSolenoid2Up() {
-    climbhabSolenoid2.set(Value.kForward);
+  public void setClimbHabUp() {
+    climbHabSolenoid1.set(Value.kForward);
+    climbHabSolenoid2.set(Value.kForward);
   }
 
-  public void setClimbHabSolenoid2Down() {
-    climbhabSolenoid2.set(Value.kReverse);
+  public void setClimbHabDown() {
+    climbHabSolenoid1.set(Value.kReverse);
+    climbHabSolenoid2.set(Value.kReverse);
   }
 
   @Override
