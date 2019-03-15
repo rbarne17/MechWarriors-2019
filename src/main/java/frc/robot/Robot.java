@@ -56,8 +56,11 @@ public class Robot extends TimedRobot {
     m_lift = new Lift();
     m_targetpusherpuller = new TargetPusherPuller();
     m_targetpuller = new TargetPuller();
+    m_targetgripper = new TargetGripper();
+    m_targetarm = new TargetArm();
     m_dashboard = new Dashboard();
     m_oi = new OI();
+
 
     m_dashboard.robotInit();
 

@@ -34,16 +34,16 @@ public class RobotMap {
   public static final int TARGET_ARM_MOTOR_LIMIT_SWITCH_HIGH = 7;
   public static final int TARGET_ARM_LIMIT_SWITCH_LOW = 8;
   public static final int TARGET_ARM_LIMIT_SWITCH_HIGH = 9;
-  public static final int TARGET_GRIPPER_LIMIT_SWITCH_LOW = 0;
-  public static final int TARGET_GRIPPER_LIMIT_SWITCH_HIGH = 0;
+  public static final int TARGET_GRIPPER_LIMIT_SWITCH_LOW = 10;
+  public static final int TARGET_GRIPPER_LIMIT_SWITCH_HIGH = 11;
 
   // Solenoid valves
   public static final int CLIMBHAB_SOLENOID_1_DEPLOY = 0;
   public static final int CLIMBHAB_SOLENOID_1_RETRACT = 1;
-  public static final int CLIMBHAB_SOLENOID_2_DEPLOY = 0;
-  public static final int CLIMBHAB_SOLENOID_2_RETRACT = 0;
-  public static final int TARGET_INTAKE_DROP_DEPLOY = 0;
-  public static final int TARGET_INTAKE_DROP_RETRACT = 0;
+  public static final int CLIMBHAB_SOLENOID_2_DEPLOY = 2;
+  public static final int CLIMBHAB_SOLENOID_2_RETRACT = 3;
+  public static final int TARGET_INTAKE_DROP_DEPLOY = 4;
+  public static final int TARGET_INTAKE_DROP_RETRACT = 5;
 
   // CAN
   public static final int CLIMBHAB_SOLENOID = 1;
