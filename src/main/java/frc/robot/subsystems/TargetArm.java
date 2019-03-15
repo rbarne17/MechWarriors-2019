@@ -29,7 +29,7 @@ public class TargetArm extends Subsystem {
   private boolean targetArmDirectionDown;
 
   public TargetArm() {
-    targetArmMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    targetArmMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
     targetArmMotor.setSelectedSensorPosition(0);
     targetArmMotor.set(0.0);
 

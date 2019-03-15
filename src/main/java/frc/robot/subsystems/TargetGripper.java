@@ -50,7 +50,7 @@ public class TargetGripper extends Subsystem {
 
   public TargetGripper() {
     targetGripperMotor.set(0.0);
-    targetGripperMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    targetGripperMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
     targetGripperMotor.setSelectedSensorPosition(0);
   }
 

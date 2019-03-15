@@ -28,7 +28,7 @@ public class Lift extends Subsystem {
   private boolean liftDirectionDown;
 
   public Lift() {
-    liftMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    liftMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
     stopLiftMotor();
     resetLiftEncoder();
 
