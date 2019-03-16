@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
+import frc.robot.commands.TargetArmWithController;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
@@ -29,7 +30,7 @@ public class TargetArm extends Subsystem {
   private boolean targetArmDirectionDown;
 
   public TargetArm() {
-    targetArmMotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    targetArmMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
     targetArmMotor.setSelectedSensorPosition(0);
     targetArmMotor.set(0.0);
 
@@ -73,6 +74,7 @@ public class TargetArm extends Subsystem {
 
   @Override
   protected void initDefaultCommand() {
+    setDefaultCommand(new TargetArmWithController());
 
   }
 

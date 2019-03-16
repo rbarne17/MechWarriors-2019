@@ -16,13 +16,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Eyes extends Subsystem {
   public UsbCamera camera1;
-  public UsbCamera camera2;
 
   public Eyes() {
     camera1 = CameraServer.getInstance().startAutomaticCapture();
-    camera1.setResolution(640, 480);
-    camera2 = CameraServer.getInstance().startAutomaticCapture();
-    camera1.setResolution(640, 480);
+    camera1.setResolution(320, 240);
 
   }
 

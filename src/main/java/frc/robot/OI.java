@@ -141,15 +141,18 @@ public class OI {
         return getJoystickX();
     }
 
-    public double getControllerGripperValue() {
-
-        return Robot.m_oi.getXboxTrigger();
-    }
-
     public double getControllerLiftValue() {
 
-        return Robot.m_oi.getXboxLeftStickY();
+        return Robot.m_oi.getXboxLeftStickX();
 
+    }
+
+    public double getControllerTargetArmValue() {
+        return Robot.m_oi.getXboxLeftStickY();
+    }
+
+    public double getControllerTargetGripperValue() {
+        return Robot.m_oi.getXboxRightStickX();
     }
 
 }
