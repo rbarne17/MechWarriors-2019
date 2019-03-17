@@ -21,6 +21,14 @@ import frc.robot.commands.PositionTargetArm;
 import frc.robot.commands.PositionTargetGripper;
 import frc.robot.commands.PositionTargetPuller;
 import frc.robot.commands.PositionTargetPusherPuller;
+import frc.robot.commands.UnloadCargoCargoShip;
+import frc.robot.commands.UnloadCargoRocketLevel1;
+import frc.robot.commands.UnloadCargoRocketLevel2;
+import frc.robot.commands.UnloadCargoRocketLevel3;
+import frc.robot.commands.UnloadHatchCargoShip;
+import frc.robot.commands.UnloadHatchRocketLevel1;
+import frc.robot.commands.UnloadHatchRocketLevel2;
+import frc.robot.commands.UnloadHatchRocketLevel3;
 
 /**
  * Add your docs here.
@@ -83,6 +91,14 @@ public class Dashboard {
                 commandGroupsTab.add("Load Cargo Depot", new LoadCargoDepot());
                 commandGroupsTab.add("Load Cargo Loading Station", new LoadCargoLoadingStation());
                 commandGroupsTab.add("Load Hatch Loading Station", new LoadHatchLoadingStation());
+                commandGroupsTab.add("Unload Cargo Cargo Ship", new UnloadCargoCargoShip());
+                commandGroupsTab.add("Unload Cargo Rocket Level 1", new UnloadCargoRocketLevel1());
+                commandGroupsTab.add("Unload Cargo Rocket Level 2", new UnloadCargoRocketLevel2());
+                commandGroupsTab.add("Unload Cargo Rocket Level 3", new UnloadCargoRocketLevel3());
+                commandGroupsTab.add("Unload Hatch Cargo Ship", new UnloadHatchCargoShip());
+                commandGroupsTab.add("Unload Hatch Rocket Level 1", new UnloadHatchRocketLevel1());
+                commandGroupsTab.add("Unload Hatch Rocket Level 2", new UnloadHatchRocketLevel2());
+                commandGroupsTab.add("Unload Hatch Rocket Level 3", new UnloadHatchRocketLevel3());
 
         }
 
