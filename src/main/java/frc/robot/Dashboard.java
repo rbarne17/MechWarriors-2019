@@ -34,12 +34,30 @@ import frc.robot.commands.UnloadHatchRocketLevel3;
  * Add your docs here.
  */
 public class Dashboard {
+        ShuffleboardTab subsystemsTab;
+        ShuffleboardTab liftTab;
+        ShuffleboardTab targetArmTab;
+        ShuffleboardTab targetGripperTab;
+        ShuffleboardTab targetPullerTab;
+        ShuffleboardTab targetPusherPullerTab;
+        ShuffleboardTab climbHabTab;
+        ShuffleboardTab commandGroupsTab;
+
+        public Dashboard() {
+                subsystemsTab = Shuffleboard.getTab("Subsystems");
+                liftTab = Shuffleboard.getTab("Lift");
+                targetArmTab = Shuffleboard.getTab("TargetArm");
+                targetGripperTab = Shuffleboard.getTab("TargetGripper");
+                targetPullerTab = Shuffleboard.getTab("TargetPuller");
+                targetPusherPullerTab = Shuffleboard.getTab("TargetPusherPuller");
+                climbHabTab = Shuffleboard.getTab("ClimbHab");
+                commandGroupsTab = Shuffleboard.getTab("Command Groups");
+        }
 
         public void robotInit() {
-                
-                
+
                 // subsystems display
-                ShuffleboardTab subsystemsTab = Shuffleboard.getTab("Subsystems");
+
                 subsystemsTab.add("DriveTrain", Robot.m_drivetrain);
                 subsystemsTab.add("Lift", Robot.m_lift);
                 subsystemsTab.add("TargetGripper", Robot.m_targetgripper);
@@ -48,7 +66,7 @@ public class Dashboard {
                 subsystemsTab.add("Eyes", Robot.m_eyes);
 
                 // Lift
-                ShuffleboardTab liftTab = Shuffleboard.getTab("Lift");
+
                 liftTab.add("Lift Cargo Ship", new PositionLift(RobotMap.LIFT_ENCODER_CARGO_SHIP));
                 liftTab.add("Lift Depot", new PositionLift(RobotMap.LIFT_ENCODER_DEPOT));
                 liftTab.add("Lift Loading Station", new PositionLift(RobotMap.LIFT_ENCODER_LOADING_STATION));
@@ -57,12 +75,10 @@ public class Dashboard {
                 liftTab.add("Lift Rocket Level 3", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_3));
 
                 // TargetArm
-                ShuffleboardTab targetArmTab = Shuffleboard.getTab("TargetArm");
                 targetArmTab.add("TargetArm Up", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_HIGH));
                 targetArmTab.add("TargetArm Down", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_LOW));
 
                 // TargetGripper
-                ShuffleboardTab targetGripperTab = Shuffleboard.getTab("TargetGripper");
                 targetGripperTab.add("TargetGripper Up",
                                 new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
                 targetGripperTab.add("TargetGripper Down",
@@ -71,21 +87,17 @@ public class Dashboard {
                                 RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOW, RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
 
                 // TargetPuller
-                ShuffleboardTab targetPullerTab = Shuffleboard.getTab("TargetPuller");
                 targetPullerTab.add("TargetPuller Pull", new PositionTargetPuller(1.0));
 
                 // TargetPusherPuller
-                ShuffleboardTab targetPusherPullerTab = Shuffleboard.getTab("TargetPusherPuller");
                 targetPusherPullerTab.add("TargetPusherPuller Push", new PositionTargetPusherPuller(1.0, true));
                 targetPusherPullerTab.add("TargetPusherPuller Pull", new PositionTargetPusherPuller(1.0, false));
 
                 // ClimbHab
-                ShuffleboardTab climbHabTab = Shuffleboard.getTab("ClimbHab");
                 climbHabTab.add("ClimbHab Up", new PositionClimbHab(true));
                 climbHabTab.add("ClimbHab Down", new PositionClimbHab(false));
 
                 // Command Groups
-                ShuffleboardTab commandGroupsTab = Shuffleboard.getTab("Command Groups");
                 commandGroupsTab.add("Climb Hab Down 2", new ClimbDownHab2());
                 commandGroupsTab.add("Climb Hab Up 2", new ClimbUpHab2());
                 commandGroupsTab.add("Load Cargo Depot", new LoadCargoDepot());
@@ -106,7 +118,7 @@ public class Dashboard {
 
         {
                 // ClimbHab
-                SmartDashboard.putBoolean("ClimbHabUp", Robot.m_climbhab.getClimbHabUp());
+                climbHabTab.add("ClimbHabUp", Robot.m_climbhab.getClimbHabUp());
                 SmartDashboard.putBoolean("ClimbHabDown", Robot.m_climbhab.getClimbHabDown());
 
                 // DriveTrain
