@@ -9,7 +9,6 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ClimbDownHab2;
 import frc.robot.commands.ClimbUpHab2;
 import frc.robot.commands.LoadCargoDepot;
@@ -35,6 +34,7 @@ import frc.robot.commands.UnloadHatchRocketLevel3;
  */
 public class Dashboard {
         ShuffleboardTab subsystemsTab;
+        ShuffleboardTab driveTrainTab;
         ShuffleboardTab liftTab;
         ShuffleboardTab targetArmTab;
         ShuffleboardTab targetGripperTab;
@@ -45,6 +45,7 @@ public class Dashboard {
 
         public Dashboard() {
                 subsystemsTab = Shuffleboard.getTab("Subsystems");
+                driveTrainTab = Shuffleboard.getTab("DriveTrain");
                 liftTab = Shuffleboard.getTab("Lift");
                 targetArmTab = Shuffleboard.getTab("TargetArm");
                 targetGripperTab = Shuffleboard.getTab("TargetGripper");
@@ -119,61 +120,61 @@ public class Dashboard {
         {
                 // ClimbHab
                 climbHabTab.add("ClimbHabUp", Robot.m_climbhab.getClimbHabUp());
-                SmartDashboard.putBoolean("ClimbHabDown", Robot.m_climbhab.getClimbHabDown());
+                climbHabTab.add("ClimbHabDown", Robot.m_climbhab.getClimbHabDown());
 
                 // DriveTrain
-                SmartDashboard.putNumber("PercentThrottle", Robot.m_oi.getControllerDriveTrainThrottleValue());
-                SmartDashboard.putNumber("PercentRotation", Robot.m_oi.getControllerDriveTrainRotationValue());
-                SmartDashboard.putNumber("ACTUALPercentThrottle",
+                driveTrainTab.add("PercentThrottle", Robot.m_oi.getControllerDriveTrainThrottleValue());
+                driveTrainTab.add("PercentRotation", Robot.m_oi.getControllerDriveTrainRotationValue());
+                driveTrainTab.add("ACTUALPercentThrottle",
                                 Robot.m_drivetrain.scalingSpeed(Robot.m_oi.getControllerDriveTrainThrottleValue()));
-                SmartDashboard.putNumber("ACTUALPercentRotation",
+                driveTrainTab.add("ACTUALPercentRotation",
                                 Robot.m_drivetrain.scalingSpeed(Robot.m_oi.getControllerDriveTrainRotationValue()));
 
                 // Lift
-                SmartDashboard.putNumber("LiftControllerValue", Robot.m_oi.getControllerLiftValue());
-                SmartDashboard.putNumber("LiftEncoder", Robot.m_lift.getLiftEncoder());
-                SmartDashboard.putBoolean("LiftCargoShip",
+                liftTab.add("LiftControllerValue", Robot.m_oi.getControllerLiftValue());
+                liftTab.add("LiftEncoder", Robot.m_lift.getLiftEncoder());
+                liftTab.add("LiftCargoShip",
                                 Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_CARGO_SHIP);
-                SmartDashboard.putBoolean("LiftDepot", Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_DEPOT);
-                SmartDashboard.putBoolean("LiftLoadingStation",
+                liftTab.add("LiftDepot", Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_DEPOT);
+                liftTab.add("LiftLoadingStation",
                                 Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_LOADING_STATION);
-                SmartDashboard.putBoolean("LiftRocketLevel1",
+                liftTab.add("LiftRocketLevel1",
                                 Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_ROCKET_LEVEL_1);
-                SmartDashboard.putBoolean("LiftRocketLevel2",
+                liftTab.add("LiftRocketLevel2",
                                 Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_ROCKET_LEVEL_2);
-                SmartDashboard.putBoolean("LiftRocketLevel3",
+                liftTab.add("LiftRocketLevel3",
                                 Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_ROCKET_LEVEL_3);
 
                 // TargetArm
-                SmartDashboard.putNumber("TargetArmEncoder", Robot.m_targetarm.getTargetArmEncoder());
-                SmartDashboard.putBoolean("TargetArmCargoShip",
+                targetArmTab.add("TargetArmEncoder", Robot.m_targetarm.getTargetArmEncoder());
+                targetArmTab.add("TargetArmCargoShip",
                                 Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_CARGO_SHIP);
-                SmartDashboard.putBoolean("TargetArmDepot",
+                targetArmTab.add("TargetArmDepot",
                                 Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_DEPOT);
-                SmartDashboard.putBoolean("TargetArmLoadingStation",
+                targetArmTab.add("TargetArmLoadingStation",
                                 Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_LOADING_STATION);
-                SmartDashboard.putBoolean("TargetArmRocketLevel1",
+                targetArmTab.add("TargetArmRocketLevel1",
                                 Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_ROCKET_LEVEL_1);
-                SmartDashboard.putBoolean("TargetArmRocketLevel2",
+                targetArmTab.add("TargetArmRocketLevel2",
                                 Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_ROCKET_LEVEL_2);
-                SmartDashboard.putBoolean("TargetArmRocketLevel3",
+                targetArmTab.add("TargetArmRocketLevel3",
                                 Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_ROCKET_LEVEL_3);
 
                 // TargetGripper
-                SmartDashboard.putNumber("TargetGripperEncoder", Robot.m_targetgripper.getTargetGripperEncoder());
-                SmartDashboard.putBoolean("TargetGripperDown", Robot.m_targetgripper.getTargetGripperLimitSwitchLow());
-                SmartDashboard.putBoolean("TargetGripperUp", Robot.m_targetgripper.getTargetGripperLimitSwitchHigh());
-                SmartDashboard.putBoolean("TargetGripperHatch", (Robot.m_targetgripper
+                targetGripperTab.add("TargetGripperEncoder", Robot.m_targetgripper.getTargetGripperEncoder());
+                targetGripperTab.add("TargetGripperDown", Robot.m_targetgripper.getTargetGripperLimitSwitchLow());
+                targetGripperTab.add("TargetGripperUp", Robot.m_targetgripper.getTargetGripperLimitSwitchHigh());
+                targetGripperTab.add("TargetGripperHatch", (Robot.m_targetgripper
                                 .getTargetGripperEncoder() >= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOW
                                 && Robot.m_targetgripper
                                                 .getTargetGripperEncoder() <= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_HIGH));
                 // TargetPuller
-                SmartDashboard.putBoolean("TargetPullerPull", Robot.m_targetpuller.getTargetPullerPull());
+                targetPullerTab.add("TargetPullerPull", Robot.m_targetpuller.getTargetPullerPull());
 
                 // TargetPusherPuller
-                SmartDashboard.putBoolean("TargetPusherPullerPush",
+                targetPusherPullerTab.add("TargetPusherPullerPush",
                                 Robot.m_targetpusherpuller.getTargetPusherPullerPush());
-                SmartDashboard.putBoolean("TargetPusherPullerPull",
+                targetPusherPullerTab.add("TargetPusherPullerPull",
                                 Robot.m_targetpusherpuller.getTargetPusherPullerPull());
 
         }
