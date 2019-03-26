@@ -44,10 +44,6 @@ public class TargetArm extends Subsystem {
 
   }
 
-  private void resetTargetArmEncoder() {
-    targetArmMotor.setSelectedSensorPosition(0);
-  }
-
   @Override
   protected void initDefaultCommand() {
     setDefaultCommand(new TargetArmWithController());
