@@ -63,10 +63,10 @@ public class RobotMap {
   public static final int LIFT_ENCODER_ROCKET_LEVEL_1 = 0;
   public static final int LIFT_ENCODER_ROCKET_LEVEL_2 = 0;
   public static final int LIFT_ENCODER_ROCKET_LEVEL_3 = 0;
-  public static final int TARGET_GRIPPER_ENCODER_HIGH = 0;
+  public static final int TARGET_GRIPPER_ENCODER_HIGH = 1825;
   public static final int TARGET_GRIPPER_ENCODER_LOW = 0;
-  public static final int TARGET_GRIPPER_ENCODER_HATCH_LOW = 0;
-  public static final int TARGET_GRIPPER_ENCODER_HATCH_HIGH = 0;
+  public static final int TARGET_GRIPPER_ENCODER_HATCH_LOW = 1450;
+  public static final int TARGET_GRIPPER_ENCODER_HATCH_HIGH = 1500;
   public static final int TARGET_GRIPPER_ENCODER_DEPOT = 0;
   public static final int TARGET_GRIPPER_ENCODER_LOADING_STATION = 0;
   public static final int TARGET_GRIPPER_ENCODER_CARGO_SHIP = 0;

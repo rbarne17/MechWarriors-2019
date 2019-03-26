@@ -57,6 +57,8 @@ public class Robot extends TimedRobot {
     m_targetpusherpuller = new TargetPusherPuller();
     m_targetpuller = new TargetPuller();
     m_targetgripper = new TargetGripper();
+    m_targetgripper.setTargetGripperDirection(RobotMap.TARGET_GRIPPER_SPEED, -2000);
+
     m_targetarm = new TargetArm();
     m_dashboard = new Dashboard();
     m_oi = new OI();

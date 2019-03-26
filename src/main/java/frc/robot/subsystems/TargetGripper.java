@@ -51,7 +51,7 @@ public class TargetGripper extends Subsystem {
   }
 
   public TargetGripper() {
-    targetGripperMotor.set(0.0);
+    targetGripperMotor.set(-.25);
     targetGripperMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
     targetGripperMotor.setSelectedSensorPosition(0);
   }

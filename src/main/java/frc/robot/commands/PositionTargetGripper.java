@@ -14,9 +14,11 @@ import frc.robot.RobotMap;
 public class PositionTargetGripper extends Command {
   private int targetGripperPosition = 0;
   private int targetGripperPositionHigh = -1;
+  private int targetGripperDeadBand = 50;
 
   public PositionTargetGripper(int targetGripperPosition) {
     this.targetGripperPosition = targetGripperPosition;
+    this.targetGripperPositionHigh = targetGripperPosition;
   }
 
   public PositionTargetGripper(int targetGripperPositionLow, int targetGripperPositionHigh) {
@@ -38,12 +40,9 @@ public class PositionTargetGripper extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (targetGripperPositionHigh == -1) {
-      return (Robot.m_targetgripper.getTargetGripperEncoder() == targetGripperPosition);
-    } else {
-      return (Robot.m_targetgripper.getTargetGripperEncoder() >= targetGripperPosition
-          && Robot.m_targetgripper.getTargetGripperEncoder() <= targetGripperPositionHigh);
-    }
+    return (Robot.m_targetgripper.getTargetGripperEncoder() >= targetGripperPosition -targetGripperDeadBand
+        && Robot.m_targetgripper.getTargetGripperEncoder() <= targetGripperPositionHigh);
+
   }
 
   // Called once after isFinished returns true
