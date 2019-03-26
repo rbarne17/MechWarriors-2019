@@ -23,20 +23,6 @@ public class RobotMap {
   public static final int DRIVETRAIN_LEFT_SPARK = 0;
   public static final int DRIVETRAIN_RIGHT_SPARK = 1;
 
-  // DIO
-  public static final int DRIVETRAIN_LEFT_ENCODER_CHANNEL_1 = 0;
-  public static final int DRIVETRAIN_LEFT_ENCODER_CHANNEL_2 = 1;
-  public static final int DRIVETRAIN_RIGHT_ENCODER_CHANNEL_1 = 2;
-  public static final int DRIVETRAIN_RIGHT_ENCODER_CHANNEL_2 = 3;
-  public static final int LIFT_LIMIT_SWITCH_LOW = 4;
-  public static final int LIFT_LIMIT_SWITCH_HIGH = 5;
-  public static final int TARGET_ARM_MOTOR_LIMIT_SWITCH_LOW = 6;
-  public static final int TARGET_ARM_MOTOR_LIMIT_SWITCH_HIGH = 7;
-  public static final int TARGET_ARM_LIMIT_SWITCH_LOW = 8;
-  public static final int TARGET_ARM_LIMIT_SWITCH_HIGH = 9;
-  public static final int TARGET_GRIPPER_LIMIT_SWITCH_LOW = 10;
-  public static final int TARGET_GRIPPER_LIMIT_SWITCH_HIGH = 11;
-
   // Solenoid valves
   public static final int CLIMBHAB_SOLENOID_1_DEPLOY = 0;
   public static final int CLIMBHAB_SOLENOID_1_RETRACT = 1;
@@ -54,9 +40,10 @@ public class RobotMap {
   public static final int TARGET_PULLER_MOTOR = 8;
   public static final int TARGET_PUSHER_PULLER_MOTOR = 9;
 
-  // Encoder values
-  public static final int TARGET_ARM_ENCODER_HIGH = 0;
-  public static final int TARGET_ARM_ENCODER_LOW = 0;
+  // Encoder targets
+  // Lift
+  public static final int LIFT_ENCODER_LOW = 0;
+  public static final int LIFT_ENCODER_HIGH = 0;
   public static final int LIFT_ENCODER_CARGO_SHIP = 0;
   public static final int LIFT_ENCODER_DEPOT = 0;
   public static final int LIFT_ENCODER_LOADING_STATION = 0;
@@ -64,10 +51,9 @@ public class RobotMap {
   public static final int LIFT_ENCODER_ROCKET_LEVEL_2 = 0;
   public static final int LIFT_ENCODER_ROCKET_LEVEL_3 = 0;
   public static final int LIFT_ENCODER_ENCODER_DEADBAND = 50;
-  public static final int TARGET_GRIPPER_ENCODER_HIGH = 1825;
-  public static final int TARGET_GRIPPER_ENCODER_LOW = 0;
-  public static final int TARGET_GRIPPER_ENCODER_HATCH = 1450;
-  public static final int TARGET_GRIPPER_ENCODER_DEADBAND = 50;
+  // TargetArm
+  public static final int TARGET_ARM_ENCODER_LOW = 0;
+  public static final int TARGET_ARM_ENCODER_HIGH = 0;
   public static final int TARGET_ARM_ENCODER_DEPOT = 0;
   public static final int TARGET_ARM_ENCODER_LOADING_STATION = 0;
   public static final int TARGET_ARM_ENCODER_CARGO_SHIP = 0;
@@ -75,7 +61,11 @@ public class RobotMap {
   public static final int TARGET_ARM_ENCODER_ROCKET_LEVEL_2 = 0;
   public static final int TARGET_ARM_ENCODER_ROCKET_LEVEL_3 = 0;
   public static final int TARGET_ARM_ENCODER_DEADBAND = 50;
-
+  // TargetGripper
+  public static final int TARGET_GRIPPER_ENCODER_LOW = 0;
+  public static final int TARGET_GRIPPER_ENCODER_HIGH = 1825;
+  public static final int TARGET_GRIPPER_ENCODER_HATCH = 1450;
+  public static final int TARGET_GRIPPER_ENCODER_DEADBAND = 50;
 
   // Motor speeds
   public static final double LIFT_SPEED = .5;
