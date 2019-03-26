@@ -35,12 +35,12 @@ public class TargetGripper extends Subsystem {
   }
 
   public boolean getTargetGripperLimitSwitchLow() {
-    return targetGripperLimitSwitchLow.get();
+    return targetGripperMotor.getSensorCollection().isRevLimitSwitchClosed();
 
   }
 
   public boolean getTargetGripperLimitSwitchHigh() {
-    return targetGripperLimitSwitchHigh.get();
+    return targetGripperMotor.getSensorCollection().isFwdLimitSwitchClosed();
   }
 
   @Override
