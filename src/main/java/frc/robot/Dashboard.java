@@ -105,7 +105,8 @@ public class Dashboard {
                                 Robot.m_drivetrain.scalingSpeed(Robot.m_oi.getControllerDriveTrainRotationValue()));
 
                 // Lift
-                SmartDashboard.putNumber("LiftControllerValue", Robot.m_oi.getControllerLiftValue());
+                SmartDashboard.putBoolean("LiftDown", Robot.m_lift.getLiftLimitSwitchLow());
+                SmartDashboard.putBoolean("LiftUp", Robot.m_lift.getLiftLimitSwitchHigh());
                 SmartDashboard.putNumber("LiftEncoder", Robot.m_lift.getLiftEncoder());
                 SmartDashboard.putBoolean("LiftCargoShip",
                                 Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_CARGO_SHIP);
@@ -121,6 +122,8 @@ public class Dashboard {
 
                 // TargetArm
                 SmartDashboard.putNumber("TargetArmEncoder", Robot.m_targetarm.getTargetArmEncoder());
+                SmartDashboard.putBoolean("TargetArmDown", Robot.m_targetarm.getTargetArmLimitSwitchLow());
+                SmartDashboard.putBoolean("TargetArmUp", Robot.m_targetarm.getTargetArmLimitSwitchHigh());
                 SmartDashboard.putBoolean("TargetArmCargoShip",
                                 Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_CARGO_SHIP);
                 SmartDashboard.putBoolean("TargetArmDepot",
