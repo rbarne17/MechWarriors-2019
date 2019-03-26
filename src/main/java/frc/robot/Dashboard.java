@@ -58,8 +58,8 @@ public class Dashboard {
                                 new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
                 SmartDashboard.putData("TargetGripper Down",
                                 new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_LOW));
-                SmartDashboard.putData("TargetGripper Hatch", new PositionTargetGripper(
-                                RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOW, RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
+                SmartDashboard.putData("TargetGripper Hatch",
+                                new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HATCH));
 
                 // TargetPuller
                 SmartDashboard.putData("TargetPuller Pull", new PositionTargetPuller(1.0));
@@ -139,9 +139,11 @@ public class Dashboard {
                 SmartDashboard.putBoolean("TargetGripperDown", Robot.m_targetgripper.getTargetGripperLimitSwitchLow());
                 SmartDashboard.putBoolean("TargetGripperUp", Robot.m_targetgripper.getTargetGripperLimitSwitchHigh());
                 SmartDashboard.putBoolean("TargetGripperHatch", (Robot.m_targetgripper
-                                .getTargetGripperEncoder() >= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_LOW
+                                .getTargetGripperEncoder() >= (RobotMap.TARGET_GRIPPER_ENCODER_HATCH
+                                                - RobotMap.TARGET_GRIPPER_ENCODER_DEADBAND / 2)
                                 && Robot.m_targetgripper
-                                                .getTargetGripperEncoder() <= RobotMap.TARGET_GRIPPER_ENCODER_HATCH_HIGH));
+                                                .getTargetGripperEncoder() <= (RobotMap.TARGET_GRIPPER_ENCODER_HATCH
+                                                                - RobotMap.TARGET_GRIPPER_ENCODER_DEADBAND / 2)));
                 // TargetPuller
                 SmartDashboard.putBoolean("TargetPullerPull", Robot.m_targetpuller.getTargetPullerPull());
 
