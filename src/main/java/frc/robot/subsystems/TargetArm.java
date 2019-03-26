@@ -24,14 +24,9 @@ public class TargetArm extends Subsystem {
    */
 
   private WPI_TalonSRX targetArmMotor = new WPI_TalonSRX(RobotMap.TARGET_ARM_MOTOR);
-  private DigitalInput targetArmLimitSwitchLow = new DigitalInput(RobotMap.TARGET_ARM_LIMIT_SWITCH_LOW);
-  private DigitalInput targetArmLimitSwitchHigh = new DigitalInput(RobotMap.TARGET_ARM_LIMIT_SWITCH_HIGH);
-  private boolean targetArmDirectionUp;
-  private boolean targetArmDirectionDown;
 
   public TargetArm() {
     targetArmMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
-    targetArmMotor.setSelectedSensorPosition(0);
     targetArmMotor.set(0.0);
 
   }
@@ -43,28 +38,9 @@ public class TargetArm extends Subsystem {
 
   // Controls speed and direction of the robot.
   // -1 = full reverse; 1 = full forward
-  public boolean getTargetArmLimitSwitchLow() {
-    return targetArmLimitSwitchLow.get();
-  }
-
-  public boolean getTargetArmLimitSwitchHigh() {
-    return targetArmLimitSwitchHigh.get();
-  }
-
-  public boolean getTargetArmDirectionUp() {
-    // true for Up, false for Down
-    return targetArmDirectionUp;
-  }
-
-  public boolean getTargatArmDirectionDown() {
-    return targetArmDirectionDown;
-  }
 
   public void stopTargetArm() {
     targetArmMotor.set(0.0);
-    if (getTargetArmLimitSwitchLow()) {
-      resetTargetArmEncoder();
-    }
 
   }
 
@@ -88,14 +64,10 @@ public class TargetArm extends Subsystem {
 
   public void setTargetArmUp(double armSpeed) {
     targetArmMotor.set(armSpeed);
-    targetArmDirectionUp = true;
-    targetArmDirectionDown = !targetArmDirectionUp;
   }
 
   public void setTargetArmDown(double armSpeed) {
     targetArmMotor.set(-armSpeed);
-    targetArmDirectionDown = true;
-    targetArmDirectionUp = !targetArmDirectionDown;
   }
 
 }
