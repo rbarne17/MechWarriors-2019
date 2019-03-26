@@ -17,6 +17,6 @@ public class UnloadHatchRocketLevel2 extends CommandGroup {
   public UnloadHatchRocketLevel2() {
     addParallel(new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_2));
     addParallel(new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_ROCKET_LEVEL_2));
-    addParallel(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_ROCKET_LEVEL_2));
+    addSequential(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
   }
 }

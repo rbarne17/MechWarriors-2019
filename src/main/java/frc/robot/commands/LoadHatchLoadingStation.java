@@ -17,6 +17,6 @@ public class LoadHatchLoadingStation extends CommandGroup {
   public LoadHatchLoadingStation() {
     addParallel(new PositionLift(RobotMap.LIFT_ENCODER_LOADING_STATION));
     addParallel(new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_LOADING_STATION));
-    addParallel(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_LOADING_STATION));
+    addParallel(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
   }
 }

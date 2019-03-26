@@ -19,7 +19,7 @@ public class UnloadHatchCargoShip extends CommandGroup {
     addParallel(new PositionTargetPuller(1.00));
     addParallel(new PositionLift(RobotMap.LIFT_ENCODER_CARGO_SHIP));
     addParallel(new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_CARGO_SHIP));
-    addParallel(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_CARGO_SHIP));
+    addSequential(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_HIGH));
     
   }
 }

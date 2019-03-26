@@ -15,10 +15,12 @@ public class LoadCargoDepot extends CommandGroup {
    * Add your docs here.
    */
   public LoadCargoDepot() {
-   addParallel(new PositionTargetPusherPuller(1.00,false)); 
-   addParallel(new PositionTargetPuller(1.00));
    addParallel( new PositionLift(RobotMap.LIFT_ENCODER_DEPOT));
    addParallel(new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_DEPOT));
-   addParallel(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_DEPOT));
+   addParallel(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_LOW));
+   addSequential(new PositionTargetPuller(1.00));   
+   addSequential(new PositionTargetPusherPuller(1.00,false)); 
+
+
   }
 }

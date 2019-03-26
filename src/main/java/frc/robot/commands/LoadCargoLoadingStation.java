@@ -19,7 +19,7 @@ public class LoadCargoLoadingStation extends CommandGroup {
     addParallel(new PositionTargetPuller(1.00));
     addParallel( new PositionLift(RobotMap.LIFT_ENCODER_LOADING_STATION));
     addParallel(new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_LOADING_STATION));
-    addParallel(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_LOADING_STATION));
+    addParallel(new PositionTargetGripper(RobotMap.TARGET_GRIPPER_ENCODER_LOW));
     
   }
 
