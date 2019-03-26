@@ -43,7 +43,7 @@ public class PositionLift extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-      Robot.m_lift.stopLiftMotor();
+      Robot.m_lift.stopLift();
     
   }
 
