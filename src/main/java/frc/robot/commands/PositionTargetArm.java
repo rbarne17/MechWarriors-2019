@@ -13,9 +13,14 @@ import frc.robot.RobotMap;
 
 public class PositionTargetArm extends Command {
   private int targetArmPosition;
+  private int targetArmPositionLow;
+  private int targetArmPositionHigh;
+  private int targetArmDeadband = RobotMap.TARGET_ARM_ENCODER_DEADBAND;
 
   public PositionTargetArm(int targetArmPosition) {
     this.targetArmPosition = targetArmPosition;
+    this.targetArmPositionLow = (targetArmPosition - targetArmDeadband / 2);
+    this.targetArmPositionHigh = (targetArmPosition + targetArmDeadband / 2);
   }
 
   // Called just before this Command runs the first time
@@ -32,7 +37,8 @@ public class PositionTargetArm extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return (Robot.m_targetarm.getTargetArmEncoder() == targetArmPosition);
+    return (Robot.m_targetarm.getTargetArmEncoder() >= targetArmPositionLow
+        && Robot.m_targetarm.getTargetArmEncoder() <= targetArmPositionHigh);
   }
 
   // Called once after isFinished returns true

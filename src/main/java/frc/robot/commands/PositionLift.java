@@ -12,19 +12,15 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class PositionLift extends Command {
-  private int liftPositionLow = 0;
-  private int liftPositionHigh = -1;
-  private boolean liftDirectionUp;
-  private boolean liftDirectionDown;
+  private int liftPosition;
+  private int liftPositionLow;
+  private int liftPositionHigh;
+  private int liftDeadBand = RobotMap.LIFT_ENCODER_ENCODER_DEADBAND;
 
   public PositionLift(int liftPosition) {
-    this.liftPositionLow = liftPosition;
-    this.liftPositionHigh = liftPosition;
-  }
-
-  public PositionLift(int positionLiftLow, int positionLiftHigh) {
-    this.liftPositionLow = positionLiftLow;
-    this.liftPositionHigh = positionLiftHigh;
+    this.liftPosition = liftPosition;
+    this.liftPositionLow = (liftPosition - liftDeadBand/2);
+    this.liftPositionHigh = liftPosition + liftDeadBand/2;
   }
 
   // Called just before this Command runs the first time
@@ -35,23 +31,13 @@ public class PositionLift extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_lift.setLiftDirection(RobotMap.LIFT_SPEED, liftPositionLow);
-    liftDirectionUp = Robot.m_lift.getLiftDirectionUp();
-    liftDirectionDown = !liftDirectionUp;
+    Robot.m_lift.setLiftDirection(RobotMap.LIFT_SPEED, liftPosition);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if ((Robot.m_lift.getLiftLimitSwitchLow() && liftDirectionDown)
-        || (Robot.m_lift.getLiftLimitSwitchHigh() && liftDirectionUp)) {
-      return true;
-    } else if (liftPositionHigh == liftPositionLow) {
-      return (Robot.m_lift.getLiftEncoder() == liftPositionLow);
-    } else {
-      return ((Robot.m_lift.getLiftEncoder() >= liftPositionLow && Robot.m_lift.getLiftEncoder() <= liftPositionHigh));
-    }
-
+    return ((Robot.m_lift.getLiftEncoder() >= liftPositionLow && Robot.m_lift.getLiftEncoder() <= liftPositionHigh));
   }
 
   // Called once after isFinished returns true
