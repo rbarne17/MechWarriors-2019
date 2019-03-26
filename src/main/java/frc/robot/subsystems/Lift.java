@@ -7,30 +7,39 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.LiftWithController;
-
+import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-/**
- * Add your docs here.
- */
 public class Lift extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+
+  /*
+   * get means use encoder and set means use LIFT_MOTOR
+   */
+
   private WPI_TalonSRX liftMotor = new WPI_TalonSRX(RobotMap.LIFT_MECHANISM_MOTOR);
 
   public Lift() {
     liftMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
-    stopLiftMotor();
+    stopLift();
+  }
 
+  protected void initDefaultCommand() {
+    setDefaultCommand(new LiftWithController());
   }
 
   public int getLiftEncoder() {
-    // Return Encoder Values Need to be fixed
     return liftMotor.getSelectedSensorPosition();
+  }
+
+  public boolean getLiftLimitSwitchHigh() {
+    return liftMotor.getSensorCollection().isFwdLimitSwitchClosed();
+  }
+
+  public boolean getLiftLimitSwitchLow() {
+    return liftMotor.getSensorCollection().isRevLimitSwitchClosed();
   }
 
   public void setLiftDirection(double liftSpeed, int liftTarget) {
@@ -53,14 +62,8 @@ public class Lift extends Subsystem {
     liftMotor.setSelectedSensorPosition(0);
   }
 
-  public void stopLiftMotor() {
+  public void stopLift() {
     liftMotor.set(0);
-  }
-
-  @Override
-  protected void initDefaultCommand() {
-    setDefaultCommand(new LiftWithController());
-
   }
 
 }

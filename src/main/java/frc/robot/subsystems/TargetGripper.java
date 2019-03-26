@@ -7,52 +7,39 @@
 
 package frc.robot.subsystems;
 
+import frc.robot.RobotMap;
+import frc.robot.commands.TargetGripperWithController;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.RobotMap;
-import frc.robot.commands.TargetGripperWithController;
-
-/**
- * Add your docs here.
- */
 public class TargetGripper extends Subsystem {
 
-  private WPI_TalonSRX targetGripperMotor = new WPI_TalonSRX(RobotMap.TARGET_GRIPPER_MOTOR);
-  private boolean targetGripperDirectionUp;
-  private boolean targetGripperDirectionDown;
-  private DigitalInput targetGripperLimitSwitchLow = new DigitalInput(RobotMap.TARGET_GRIPPER_LIMIT_SWITCH_LOW);
-  private DigitalInput targetGripperLimitSwitchHigh = new DigitalInput(RobotMap.TARGET_GRIPPER_LIMIT_SWITCH_HIGH);
+  /*
+   * get means use encoder and set means use LIFT_MOTOR
+   */
 
-  public boolean getTargetGripperDirectionUp() {
-    return targetGripperDirectionUp;
+  private WPI_TalonSRX targetGripperMotor = new WPI_TalonSRX(RobotMap.TARGET_GRIPPER_MOTOR);
+
+  public TargetGripper() {
+    targetGripperMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+    stopTargetGripper();
   }
 
-  public boolean getTargetGripperDirectionDown() {
-    return targetGripperDirectionDown;
+  public void initDefaultCommand() {
+    setDefaultCommand(new TargetGripperWithController());
+  }
+
+  public int getTargetGripperEncoder() {
+    return targetGripperMotor.getSelectedSensorPosition();
   }
 
   public boolean getTargetGripperLimitSwitchLow() {
     return targetGripperMotor.getSensorCollection().isRevLimitSwitchClosed();
-
   }
 
   public boolean getTargetGripperLimitSwitchHigh() {
     return targetGripperMotor.getSensorCollection().isFwdLimitSwitchClosed();
-  }
-
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
-    setDefaultCommand(new TargetGripperWithController());
-  }
-
-  public TargetGripper() {
-    targetGripperMotor.set(-.25);
-    targetGripperMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
   }
 
   public void setTargetGripperDirection(double gripperSpeed, int targetGripperTarget) {
@@ -65,33 +52,18 @@ public class TargetGripper extends Subsystem {
 
   public void setTargetGripperUp(double gripperSpeed) {
     targetGripperMotor.set(gripperSpeed);
-    targetGripperDirectionUp = true;
-    targetGripperDirectionDown = !targetGripperDirectionUp;
   }
 
   public void setTargetGripperDown(double gripperSpeed) {
     targetGripperMotor.set(-gripperSpeed);
-    targetGripperDirectionDown = true;
-    targetGripperDirectionUp = !targetGripperDirectionDown;
-  }
-
-  public int getTargetGripperEncoder() {
-
-    return targetGripperMotor.getSelectedSensorPosition();
-
-  }
-
-  public void stopTargetGripper() {
-
-    targetGripperMotor.set(0.0);
-    targetGripperMotor.setSelectedSensorPosition(0);
-    if (getTargetGripperLimitSwitchLow()) {
-      resetTargetGripperEncoder();
-    }
   }
 
   public void resetTargetGripperEncoder() {
     targetGripperMotor.setSelectedSensorPosition(0);
-
   }
+
+  public void stopTargetGripper() {
+    targetGripperMotor.set(0.0);
+  }
+
 }

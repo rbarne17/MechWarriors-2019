@@ -9,45 +9,37 @@ package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
 import frc.robot.commands.TargetArmWithController;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-/**
- * Add your docs here.
- */
 public class TargetArm extends Subsystem {
 
   /*
-   * set means use encoder and get means use LIFT_MOTOR
+   * get means use encoder and set means use LIFT_MOTOR
    */
 
   private WPI_TalonSRX targetArmMotor = new WPI_TalonSRX(RobotMap.TARGET_ARM_MOTOR);
 
   public TargetArm() {
     targetArmMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
-    targetArmMotor.set(0.0);
+    stopTargetArm();
+  }
 
+  protected void initDefaultCommand() {
+    setDefaultCommand(new TargetArmWithController());
   }
 
   public int getTargetArmEncoder() {
-    // Return Encoder Values Need to be fixed
     return targetArmMotor.getSelectedSensorPosition();
   }
 
-  // Controls speed and direction of the robot.
-  // -1 = full reverse; 1 = full forward
-
-  public void stopTargetArm() {
-    targetArmMotor.set(0.0);
-
+  public boolean getTargetArmLimitSwitchHigh() {
+    return targetArmMotor.getSensorCollection().isFwdLimitSwitchClosed();
   }
 
-  @Override
-  protected void initDefaultCommand() {
-    setDefaultCommand(new TargetArmWithController());
-
+  public boolean getTargetArmLimitSwitchLow() {
+    return targetArmMotor.getSensorCollection().isRevLimitSwitchClosed();
   }
 
   public void setTargetArmDirection(double armSpeed, int targetArmTarget) {
@@ -64,6 +56,14 @@ public class TargetArm extends Subsystem {
 
   public void setTargetArmDown(double armSpeed) {
     targetArmMotor.set(-armSpeed);
+  }
+
+  public void resetTargetArmEncoder() {
+    targetArmMotor.setSelectedSensorPosition(0);
+  }
+
+  public void stopTargetArm() {
+    targetArmMotor.set(0.0);
   }
 
 }
