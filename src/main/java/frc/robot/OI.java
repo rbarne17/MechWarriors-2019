@@ -17,6 +17,7 @@ import frc.robot.commands.ClimbUpHab2;
 import frc.robot.commands.LoadCargoDepot;
 import frc.robot.commands.LoadCargoLoadingStation;
 import frc.robot.commands.LoadHatchLoadingStation;
+import frc.robot.commands.PositionTargetPusherPuller;
 import frc.robot.commands.UnloadCargoCargoShip;
 import frc.robot.commands.UnloadCargoRocketLevel1;
 import frc.robot.commands.UnloadCargoRocketLevel2;
@@ -95,6 +96,8 @@ public class OI {
         D11.whenPressed(new UnloadHatchRocketLevel1());
         xboxAButton.whenPressed(new UnloadHatchRocketLevel2());
         xboxBButton.whenPressed(new UnloadHatchRocketLevel3());
+        xboxYButton.whenPressed(new PositionTargetPusherPuller(.5, true));
+        xboxXButton.whenPressed(new PositionTargetPusherPuller(.5, false));
     }
 
     public double getJoystickY() {

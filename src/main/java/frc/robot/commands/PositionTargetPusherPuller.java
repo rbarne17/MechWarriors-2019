@@ -46,6 +46,7 @@ public class PositionTargetPusherPuller extends TimedCommand {
   // Called once after timeout
   @Override
   protected void end() {
+    Robot.m_targetpusherpuller.stopTargetPusherPuller();
   }
 
   // Called when another command which requires one or more of the same

@@ -47,9 +47,12 @@ public class RobotMap {
   public static final int LIFT_ENCODER_CARGO_SHIP = 0;
   public static final int LIFT_ENCODER_DEPOT = 0;
   public static final int LIFT_ENCODER_LOADING_STATION = 0;
-  public static final int LIFT_ENCODER_ROCKET_LEVEL_1 = 0;
-  public static final int LIFT_ENCODER_ROCKET_LEVEL_2 = 0;
-  public static final int LIFT_ENCODER_ROCKET_LEVEL_3 = 0;
+  public static final int LIFT_ENCODER_HATCH_ROCKET_LEVEL_1 = 353065;
+  public static final int LIFT_ENCODER_HATCH_ROCKET_LEVEL_2 = 752000;
+  public static final int LIFT_ENCODER_HATCH_ROCKET_LEVEL_3 = 745959;
+  public static final int LIFT_ENCODER_CARGO_ROCKET_LEVEL_1 = 690473;
+  public static final int LIFT_ENCODER_CARGO_ROCKET_LEVEL_2 = 4000;
+  public static final int LIFT_ENCODER_CARGO_ROCKET_LEVEL_3 = 785303;
   public static final int LIFT_ENCODER_ENCODER_DEADBAND = 50;
   // TargetArm
   public static final int TARGET_ARM_ENCODER_LOW = 0;
@@ -57,9 +60,12 @@ public class RobotMap {
   public static final int TARGET_ARM_ENCODER_DEPOT = 0;
   public static final int TARGET_ARM_ENCODER_LOADING_STATION = 0;
   public static final int TARGET_ARM_ENCODER_CARGO_SHIP = 0;
-  public static final int TARGET_ARM_ENCODER_ROCKET_LEVEL_1 = 0;
-  public static final int TARGET_ARM_ENCODER_ROCKET_LEVEL_2 = 0;
-  public static final int TARGET_ARM_ENCODER_ROCKET_LEVEL_3 = 0;
+  public static final int TARGET_ARM_ENCODER_HATCH_ROCKET_LEVEL_1 = 122201;
+  public static final int TARGET_ARM_ENCODER_HATCH_ROCKET_LEVEL_2 = 413643;
+  public static final int TARGET_ARM_ENCODER_HATCH_ROCKET_LEVEL_3 = 899030;
+  public static final int TARGET_ARM_ENCODER_CARGO_ROCKET_LEVEL_1 = 106346;
+  public static final int TARGET_ARM_ENCODER_CARGO_ROCKET_LEVEL_2 = 798882;
+  public static final int TARGET_ARM_ENCODER_CARGO_ROCKET_LEVEL_3 = 1068370;
   public static final int TARGET_ARM_ENCODER_DEADBAND = 50;
   // TargetGripper
   public static final int TARGET_GRIPPER_ENCODER_LOW = 0;
