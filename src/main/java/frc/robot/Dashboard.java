@@ -46,9 +46,9 @@ public class Dashboard {
                 SmartDashboard.putData("Lift Cargo Ship", new PositionLift(RobotMap.LIFT_ENCODER_CARGO_SHIP));
                 SmartDashboard.putData("Lift Depot", new PositionLift(RobotMap.LIFT_ENCODER_DEPOT));
                 SmartDashboard.putData("Lift Loading Station", new PositionLift(RobotMap.LIFT_ENCODER_LOADING_STATION));
-                SmartDashboard.putData("Lift Rocket Level 1", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_1));
-                SmartDashboard.putData("Lift Rocket Level 2", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_2));
-                SmartDashboard.putData("Lift Rocket Level 3", new PositionLift(RobotMap.LIFT_ENCODER_ROCKET_LEVEL_3));
+                SmartDashboard.putData("Lift Cargo Rocket Level 1", new PositionLift(RobotMap.LIFT_ENCODER_CARGO_ROCKET_LEVEL_1));
+                SmartDashboard.putData("Lift Cargo Rocket Level 2", new PositionLift(RobotMap.LIFT_ENCODER_CARGO_ROCKET_LEVEL_2));
+                SmartDashboard.putData("Lift Cargo Rocket Level 3", new PositionLift(RobotMap.LIFT_ENCODER_CARGO_ROCKET_LEVEL_3));
 
                 // TargetArm
                 SmartDashboard.putData("TargetArm Up", new PositionTargetArm(RobotMap.TARGET_ARM_ENCODER_HIGH));
@@ -113,12 +113,12 @@ public class Dashboard {
                 SmartDashboard.putBoolean("LiftDepot", Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_DEPOT);
                 SmartDashboard.putBoolean("LiftLoadingStation",
                                 Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_LOADING_STATION);
-                SmartDashboard.putBoolean("LiftRocketLevel1",
-                                Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_ROCKET_LEVEL_1);
-                SmartDashboard.putBoolean("LiftRocketLevel2",
-                                Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_ROCKET_LEVEL_2);
-                SmartDashboard.putBoolean("LiftRocketLevel3",
-                                Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_ROCKET_LEVEL_3);
+                SmartDashboard.putBoolean("LiftCargoRocketLevel1",
+                                Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_CARGO_ROCKET_LEVEL_1);
+                SmartDashboard.putBoolean("LiftCargoRocketLevel2",
+                                Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_CARGO_ROCKET_LEVEL_2);
+                SmartDashboard.putBoolean("LiftCargoRocketLevel3",
+                                Robot.m_lift.getLiftEncoder() == RobotMap.LIFT_ENCODER_CARGO_ROCKET_LEVEL_3);
 
                 // TargetArm
                 SmartDashboard.putNumber("TargetArmEncoder", Robot.m_targetarm.getTargetArmEncoder());
@@ -130,12 +130,12 @@ public class Dashboard {
                                 Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_DEPOT);
                 SmartDashboard.putBoolean("TargetArmLoadingStation",
                                 Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_LOADING_STATION);
-                SmartDashboard.putBoolean("TargetArmRocketLevel1",
-                                Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_ROCKET_LEVEL_1);
-                SmartDashboard.putBoolean("TargetArmRocketLevel2",
-                                Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_ROCKET_LEVEL_2);
-                SmartDashboard.putBoolean("TargetArmRocketLevel3",
-                                Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_ROCKET_LEVEL_3);
+                SmartDashboard.putBoolean("TargetArmCargoRocketLevel1",
+                                Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_CARGO_ROCKET_LEVEL_1);
+                SmartDashboard.putBoolean("TargetArmCargoRocketLevel2",
+                                Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_CARGO_ROCKET_LEVEL_2);
+                SmartDashboard.putBoolean("TargetArmCargoRocketLevel3",
+                                Robot.m_targetarm.getTargetArmEncoder() == RobotMap.TARGET_ARM_ENCODER_CARGO_ROCKET_LEVEL_3);
 
                 // TargetGripper
                 SmartDashboard.putNumber("TargetGripperEncoder", Robot.m_targetgripper.getTargetGripperEncoder());

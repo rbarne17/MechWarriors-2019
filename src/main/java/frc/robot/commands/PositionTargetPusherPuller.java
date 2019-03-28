@@ -11,15 +11,10 @@ import edu.wpi.first.wpilibj.command.TimedCommand;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-/**
- * Add your docs here.
- */
 public class PositionTargetPusherPuller extends TimedCommand {
   private boolean targetPusherPullerPush;
 
-  /**
-   * Add your docs here.
-   */
+  //push if targetPusherPullerPush true; pull if targetPusherPullerPush false
   public PositionTargetPusherPuller(double timeout, boolean targetPusherPullerPush) {
     super(timeout);
     this.targetPusherPullerPush = targetPusherPullerPush;
