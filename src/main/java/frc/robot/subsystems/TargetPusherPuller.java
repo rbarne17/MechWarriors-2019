@@ -11,12 +11,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
-/**
- * Add your docs here.
- */
 public class TargetPusherPuller extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+
   private WPI_TalonSRX targetPusherPullerMotor = new WPI_TalonSRX(RobotMap.TARGET_PUSHER_PULLER_MOTOR);
 
   public void setTargetPusherPullerPull(double pullerTarget) {
@@ -41,7 +37,5 @@ public class TargetPusherPuller extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
   }
 }
