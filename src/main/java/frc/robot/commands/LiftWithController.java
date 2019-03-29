@@ -23,12 +23,12 @@ public class LiftWithController extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_lift.setLiftUp(Robot.m_oi.getControllerLiftValue());
-  }
+      Robot.m_lift.setLiftUp(Robot.m_oi.getControllerLiftValue());}
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
+    //if(Robot.m_oi.driverControllerXbox.getxboxRBumper() || Robot.m_oi.driverControllerXbox.get())
     return false;
   }
 

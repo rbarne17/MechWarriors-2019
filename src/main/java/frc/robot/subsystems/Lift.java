@@ -51,7 +51,13 @@ public class Lift extends Subsystem {
   }
 
   public void setLiftUp(double liftSpeed) {
+    liftSpeed = valueAfterDeadzone(liftSpeed);
+    liftSpeed = valueAfterDeadzone(liftSpeed);
     liftMotor.set(liftSpeed);
+  }
+
+  private double valueAfterDeadzone(double liftSpeed) {
+    return 0;
   }
 
   public void setLiftDown(double liftSpeed) {
