@@ -7,8 +7,10 @@
 
 package frc.robot.subsystems;
 
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.TargetArmWithController;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -20,6 +22,13 @@ public class TargetArm extends Subsystem {
    */
 
   private WPI_TalonSRX targetArmMotor = new WPI_TalonSRX(RobotMap.TARGET_ARM_MOTOR);
+
+  // Instantiates the physical limit switches, which are plugged into the DIO ports of the RIO.
+  // The constructor takes in an integer that represents the port # the switch was plugged into
+  private DigitalInput topLimitSwitch = new DigitalInput(RobotMap.TOP_LIM_SWITCH);
+  private DigitalInput botLimitSwitch = new DigitalInput(RobotMap.BOT_LIM_SWITCH);
+
+  private final double DEADBAND = 0.08;
 
   public TargetArm() {
     targetArmMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
@@ -35,11 +44,11 @@ public class TargetArm extends Subsystem {
   }
 
   public boolean getTargetArmLimitSwitchHigh() {
-    return targetArmMotor.getSensorCollection().isFwdLimitSwitchClosed();
+    return topLimitSwitch.get();
   }
 
   public boolean getTargetArmLimitSwitchLow() {
-    return targetArmMotor.getSensorCollection().isRevLimitSwitchClosed();
+    return botLimitSwitch.get();
   }
 
   public void setTargetArmDirection(double armSpeed, int targetArmTarget) {
@@ -51,6 +60,13 @@ public class TargetArm extends Subsystem {
   }
 
   public void setTargetArmUp(double armSpeed) {
+    // The following code implements the limit switches so you can't drive up or down
+    // after you've hit the top or bottom one
+    // Commented out because the switches aren't in the right place mechanically
+    /*if(topLimitSwitch.get() && armSpeed > 0) armSpeed = 0;
+    else if(botLimitSwitch.get() && armSpeed < 0) armSpeed = 0;*/
+    if(Math.abs(armSpeed) < DEADBAND) armSpeed = 0;
+
     targetArmMotor.set(armSpeed);
   }
 

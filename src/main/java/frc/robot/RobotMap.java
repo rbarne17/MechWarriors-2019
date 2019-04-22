@@ -23,6 +23,10 @@ public class RobotMap {
   public static final int DRIVETRAIN_LEFT_SPARK = 0;
   public static final int DRIVETRAIN_RIGHT_SPARK = 1;
 
+  // DIO
+  public static final int TOP_LIM_SWITCH = 1;
+  public static final int BOT_LIM_SWITCH = 0;
+
   // Solenoid valves
   public static final int CLIMBHAB_SOLENOID_1_DEPLOY = 0;
   public static final int CLIMBHAB_SOLENOID_1_RETRACT = 1;
