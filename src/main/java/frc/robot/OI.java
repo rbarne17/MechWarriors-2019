@@ -25,7 +25,7 @@ import frc.robot.commands.UnloadCargoRocketLevel2;
 import frc.robot.commands.UnloadCargoRocketLevel3;
 import frc.robot.commands.UnloadHatchCargoShip;
 import frc.robot.commands.UnloadHatchRocketLevel1;
-import frc.robot.commands.UnloadHatchRocketLevel2;
+import frc.robot.commands.*;
 import frc.robot.commands.UnloadHatchRocketLevel3;
 
 /**
@@ -101,6 +101,10 @@ public class OI {
         xboxYButton.whenPressed(new TargetPushPullWithController(true));
         //pull
         xboxXButton.whenPressed(new TargetPushPullWithController(false));
+        // Stops the freaking pushing pulling
+        xboxXButton.whenReleased(new StopTheFreakingPushingPulling());
+        xboxYButton.whenReleased(new StopTheFreakingPushingPulling());
+
        // xboxRBumper.whenPressed(new LiftWithController(true)); 
        // xboxLBumper.whenPressed(new LiftWithController(false));  
      }
