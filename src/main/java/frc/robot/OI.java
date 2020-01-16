@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.ClimbDownHab2;
 import frc.robot.commands.ClimbUpHab2;
-import frc.robot.commands.LiftWithController;
 import frc.robot.commands.LoadCargoDepot;
 import frc.robot.commands.LoadCargoLoadingStation;
 import frc.robot.commands.LoadHatchLoadingStation;

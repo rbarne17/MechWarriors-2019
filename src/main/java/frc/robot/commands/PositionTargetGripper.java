@@ -1,3 +1,4 @@
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -6,6 +7,7 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.commands;
+
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;

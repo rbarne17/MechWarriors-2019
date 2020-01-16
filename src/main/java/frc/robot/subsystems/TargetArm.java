@@ -7,7 +7,6 @@
 
 package frc.robot.subsystems;
 
-import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.commands.TargetArmWithController;
 import edu.wpi.first.wpilibj.DigitalInput;
